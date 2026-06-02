@@ -4,8 +4,77 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Content Manager</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/decap-cms@3.4.1/dist/decap-cms.css">
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@^3/dist/decap-cms.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/decap-cms@3.4.1/dist/decap-cms.js"></script>
+  <script>
+  CMS.init({
+    config: {
+      backend: {
+        name: "github",
+        repo: "Copyright-News/copyrightnews.dpdns.org",
+        branch: "master",
+        auth_type: "pkce",
+        app_id: "Ov23liqtlcEakuRO8s8s"
+      },
+      media_folder: "assets/images",
+      public_folder: "/assets/images",
+      collections: [
+        {
+          name: "tech",
+          label: "Tech Articles",
+          folder: "content/tech",
+          create: true,
+          slug: "{{slug}}",
+          fields: [
+            { name: "title", label: "Title", widget: "string" },
+            { name: "author", label: "Author", widget: "string", default: "Copyright News" },
+            { name: "date", label: "Publish Date", widget: "datetime", format: "MMMM D, YYYY" },
+            { name: "read_time", label: "Read Time", widget: "string", default: "5 min read" },
+            { name: "excerpt", label: "Excerpt", widget: "text", required: false },
+            { name: "image", label: "Featured Image", widget: "string", default: "https://picsum.photos/seed/tech/1200/600" },
+            { name: "image_alt", label: "Image Alt", widget: "string", default: "Tech article" },
+            { name: "body", label: "Body", widget: "markdown" }
+          ]
+        },
+        {
+          name: "blog",
+          label: "Blog Posts",
+          folder: "content/blog",
+          create: true,
+          slug: "{{slug}}",
+          fields: [
+            { name: "title", label: "Title", widget: "string" },
+            { name: "author", label: "Author", widget: "string", default: "Copyright News" },
+            { name: "date", label: "Publish Date", widget: "datetime", format: "MMMM D, YYYY" },
+            { name: "read_time", label: "Read Time", widget: "string", default: "5 min read" },
+            { name: "excerpt", label: "Excerpt", widget: "text", required: false },
+            { name: "image", label: "Featured Image", widget: "string", default: "https://picsum.photos/seed/blog/1200/600" },
+            { name: "image_alt", label: "Image Alt", widget: "string", default: "Blog article" },
+            { name: "body", label: "Body", widget: "markdown" }
+          ]
+        },
+        {
+          name: "influencers",
+          label: "Influencer Articles",
+          folder: "content/influencers",
+          create: true,
+          slug: "{{slug}}",
+          fields: [
+            { name: "title", label: "Title", widget: "string" },
+            { name: "author", label: "Author", widget: "string", default: "Copyright News" },
+            { name: "date", label: "Publish Date", widget: "datetime", format: "MMMM D, YYYY" },
+            { name: "read_time", label: "Read Time", widget: "string", default: "5 min read" },
+            { name: "excerpt", label: "Excerpt", widget: "text", required: false },
+            { name: "image", label: "Featured Image", widget: "string", default: "https://picsum.photos/seed/influencer/1200/600" },
+            { name: "image_alt", label: "Image Alt", widget: "string", default: "Influencer article" },
+            { name: "body", label: "Body", widget: "markdown" }
+          ]
+        }
+      ]
+    }
+  });
+  </script>
 </body>
 </html>
