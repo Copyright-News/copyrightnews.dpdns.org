@@ -5,7 +5,7 @@
   "scripts": {
     "build": "node build.js"
   },
-  "dependencies": {
+  "devDependencies": {
     "marked": "^15.0.0",
     "front-matter": "^4.0.2"
   }

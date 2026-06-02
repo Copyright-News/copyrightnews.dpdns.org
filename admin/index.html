@@ -20,6 +20,19 @@
       },
       media_folder: "assets/images",
       public_folder: "/assets/images",
+      media_library: {
+        name: "upload",
+        config: {
+          multiple: true,
+          max_file_size: 5242880,
+          allowed_file_types: [".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg"]
+        }
+      },
+      slug: {
+        encoding: "ascii",
+        clean_accents: true,
+        sanitize_replacement: "-"
+      },
       collections: [
         {
           name: "tech",

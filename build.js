@@ -20,6 +20,8 @@ const SECTIONS = [
     footerGallery: '../../gallery/',
     footerAbout: '../../about.html',
     footerContact: '../../contact.html',
+    footerPrivacy: '../../privacy.html',
+    footerTerms: '../../terms.html',
     outputDir: 'tech/posts'
   },
   {
@@ -38,6 +40,8 @@ const SECTIONS = [
     footerGallery: '../../gallery/',
     footerAbout: '../../about.html',
     footerContact: '../../contact.html',
+    footerPrivacy: '../../privacy.html',
+    footerTerms: '../../terms.html',
     outputDir: 'blog/posts'
   },
   {
@@ -56,6 +60,8 @@ const SECTIONS = [
     footerGallery: '../../gallery/',
     footerAbout: '../../about.html',
     footerContact: '../../contact.html',
+    footerPrivacy: '../../privacy.html',
+    footerTerms: '../../terms.html',
     outputDir: 'influencers/posts'
   }
 ];
@@ -79,6 +85,8 @@ function buildPost(mdFilePath, section) {
     .replace(/__AUTHOR__/g, attributes.author || 'Copyright News')
     .replace(/__DATE__/g, attributes.date || '')
     .replace(/__READ_TIME__/g, attributes.read_time || '5 min read')
+    .replace(/__EXCERPT__/g, attributes.excerpt || attributes.title)
+    .replace(/__URL__/g, `${section.outputDir}/${slug}.html`)
     .replace(/__IMAGE__/g, attributes.image || '')
     .replace(/__IMAGE_ALT__/g, attributes.image_alt || attributes.title)
     .replace(/__BODY__/g, bodyHtml)
@@ -94,7 +102,9 @@ function buildPost(mdFilePath, section) {
     .replace(/__FOOTER_BLOG__/g, section.footerBlog)
     .replace(/__FOOTER_GALLERY__/g, section.footerGallery)
     .replace(/__FOOTER_ABOUT__/g, section.footerAbout)
-    .replace(/__FOOTER_CONTACT__/g, section.footerContact);
+    .replace(/__FOOTER_CONTACT__/g, section.footerContact)
+    .replace(/__FOOTER_PRIVACY__/g, section.footerPrivacy)
+    .replace(/__FOOTER_TERMS__/g, section.footerTerms);
 
   const outDir = path.join(__dirname, section.outputDir);
   if (!fs.existsSync(outDir)) {

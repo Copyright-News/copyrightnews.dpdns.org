@@ -3,14 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — Copyright News</title>
-  <meta name="description" content="Get in touch with Copyright News. Story tips, press inquiries, and feedback welcome.">
-  <meta property="og:title" content="Contact — Copyright News">
-  <meta property="og:description" content="Get in touch with Copyright News. Story tips, press inquiries, and feedback welcome.">
+  <title>404 — Page Not Found — Copyright News</title>
+  <meta name="description" content="The page you're looking for doesn't exist.">
+  <meta property="og:title" content="404 — Page Not Found — Copyright News">
+  <meta property="og:description" content="The page you're looking for doesn't exist.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://copyrightnews.dpdns.org/contact.html">
+  <meta property="og:url" content="https://copyrightnews.dpdns.org/404.html">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .error-page { text-align: center; padding: 100px 20px; }
+    .error-page h1 { font-size: 5rem; font-family: var(--font-heading); color: var(--accent); margin-bottom: 8px; }
+    .error-page h2 { font-size: 1.5rem; margin-bottom: 16px; }
+    .error-page p { color: var(--text-light); margin-bottom: 32px; font-size: 1.1rem; }
+    .error-page .btn { display: inline-block; padding: 12px 32px; background: var(--dark); color: #fff; border-radius: var(--radius); font-weight: 600; }
+    .error-page .btn:hover { background: var(--accent); color: #fff; }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -33,38 +41,12 @@
   </header>
 
   <main>
-    <section class="page-content">
+    <section class="error-page">
       <div class="container">
-        <h1 style="text-align:center;">Get in Touch</h1>
-        <p style="text-align:center; max-width:500px; margin:0 auto 40px;">Have a story tip, press inquiry, or just want to say hello? We'd love to hear from you.</p>
-
-        <div class="contact-info">
-          <p>📧 <a href="mailto:mintdmca@gmail.com">mintdmca@gmail.com</a></p>
-          <p>📢 <a href="https://t.me/copyrightnews" target="_blank">@copyrightnews on Telegram</a></p>
-        </div>
-
-        <form class="contact-form" id="contactForm" method="POST">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required>
-
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-
-          <label for="subject">Subject</label>
-          <select id="subject" name="subject">
-            <option>Story tip</option>
-            <option>Press inquiry</option>
-            <option>Advertising</option>
-            <option>Feedback</option>
-            <option>Other</option>
-          </select>
-
-          <label for="message">Message</label>
-          <textarea id="message" name="message" required></textarea>
-
-          <button type="submit">Send Message</button>
-        </form>
-        <p id="formStatus" style="text-align:center;margin-top:16px;font-weight:600;display:none;"></p>
+        <h1>404</h1>
+        <h2>Page Not Found</h2>
+        <p>The page you're looking for doesn't exist or has been moved.</p>
+        <a href="/" class="btn">Go Home</a>
       </div>
     </section>
   </main>
@@ -99,8 +81,6 @@
           <ul>
             <li><a href="https://github.com/Copyright-News" target="_blank">GitHub</a></li>
             <li><a href="https://t.me/copyrightnews" target="_blank">Telegram</a></li>
-            <li><a href="https://x.com/copyrightnews" target="_blank">Twitter / X</a></li>
-            <li><a href="https://instagram.com/copyrightnews" target="_blank">Instagram</a></li>
           </ul>
         </div>
       </div>
