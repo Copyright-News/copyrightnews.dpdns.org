@@ -1,0 +1,55 @@
+backend:
+  name: github
+  repo: Copyright-News/copyrightnews.dpdns.org
+  branch: master
+  auth_type: pkce
+  app_id: Ov23liqtlcEakuRO8s8s
+
+media_folder: assets/images
+public_folder: /assets/images
+
+collections:
+  - name: tech
+    label: Tech Articles
+    folder: content/tech
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Author, name: author, widget: string, default: "Copyright News" }
+      - { label: "Publish Date", name: date, widget: datetime, format: "MMMM D, YYYY" }
+      - { label: "Read Time", name: read_time, widget: string, default: "5 min read" }
+      - { label: Excerpt, name: excerpt, widget: text, required: false }
+      - { label: "Featured Image", name: image, widget: string, default: "https://picsum.photos/seed/tech/1200/600" }
+      - { label: "Image Alt", name: image_alt, widget: string, default: "Tech article" }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: blog
+    label: Blog Posts
+    folder: content/blog
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Author, name: author, widget: string, default: "Copyright News" }
+      - { label: "Publish Date", name: date, widget: datetime, format: "MMMM D, YYYY" }
+      - { label: "Read Time", name: read_time, widget: string, default: "5 min read" }
+      - { label: Excerpt, name: excerpt, widget: text, required: false }
+      - { label: "Featured Image", name: image, widget: string, default: "https://picsum.photos/seed/blog/1200/600" }
+      - { label: "Image Alt", name: image_alt, widget: string, default: "Blog article" }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: influencers
+    label: Influencer Articles
+    folder: content/influencers
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Author, name: author, widget: string, default: "Copyright News" }
+      - { label: "Publish Date", name: date, widget: datetime, format: "MMMM D, YYYY" }
+      - { label: "Read Time", name: read_time, widget: string, default: "5 min read" }
+      - { label: Excerpt, name: excerpt, widget: text, required: false }
+      - { label: "Featured Image", name: image, widget: string, default: "https://picsum.photos/seed/influencer/1200/600" }
+      - { label: "Image Alt", name: image_alt, widget: string, default: "Influencer article" }
+      - { label: Body, name: body, widget: markdown }
