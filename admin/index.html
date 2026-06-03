@@ -7,10 +7,11 @@
 </head>
 <body>
   <script>window.CMS_MANUAL_INIT = true;</script>
-  <script src="https://cdn.jsdelivr.net/npm/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@sveltia/cms/dist/sveltia-cms.js"></script>
   <script>
   const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
   CMS.init({
+    load_config_file: false,
     config: {
       local_backend: isLocalhost,
       backend: isLocalhost ? {
