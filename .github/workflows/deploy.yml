@@ -12,6 +12,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -23,13 +25,15 @@ jobs:
 
       - run: node build.js
 
-      - name: Deploy to Cloudflare
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-
+      # Commit built HTML BEFORE deploying so Cloudflare gets the latest
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Auto-build posts from markdown"
           commit_user_name: "Copyright News Bot"
           commit_user_email: "bot@copyrightnews.dpdns.org"
+          file_pattern: "*.html tech/ blog/ influencers/"
+
+      - name: Deploy to Cloudflare
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
