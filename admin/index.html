@@ -11,8 +11,8 @@
   <script>
   const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
   CMS.init({
-    load_config_file: false,
     config: {
+      load_config_file: false,
       local_backend: isLocalhost,
       backend: isLocalhost ? {
         name: "proxy",
