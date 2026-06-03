@@ -4,14 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Content Manager</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/decap-cms@3.4.1/dist/decap-cms.css">
 </head>
 <body>
-  <script src="https://cdn.jsdelivr.net/npm/decap-cms@3.4.1/dist/decap-cms.js"></script>
+  <script>window.CMS_MANUAL_INIT = true;</script>
+  <script src="https://cdn.jsdelivr.net/npm/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script>
+  const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
   CMS.init({
     config: {
-      backend: {
+      local_backend: isLocalhost,
+      backend: isLocalhost ? {
+        name: "proxy",
+        proxy_url: "http://localhost:8081/api/v1"
+      } : {
         name: "github",
         repo: "Copyright-News/copyrightnews.dpdns.org",
         branch: "master",
@@ -20,14 +25,6 @@
       },
       media_folder: "assets/images",
       public_folder: "/assets/images",
-      media_library: {
-        name: "upload",
-        config: {
-          multiple: true,
-          max_file_size: 5242880,
-          allowed_file_types: [".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg"]
-        }
-      },
       slug: {
         encoding: "ascii",
         clean_accents: true,
@@ -46,7 +43,7 @@
             { name: "date", label: "Publish Date", widget: "datetime", format: "MMMM D, YYYY" },
             { name: "read_time", label: "Read Time", widget: "string", default: "5 min read" },
             { name: "excerpt", label: "Excerpt", widget: "text", required: false },
-            { name: "image", label: "Featured Image", widget: "string", default: "https://picsum.photos/seed/tech/1200/600" },
+            { name: "image", label: "Featured Image", widget: "image", default: "https://picsum.photos/seed/tech/1200/600" },
             { name: "image_alt", label: "Image Alt", widget: "string", default: "Tech article" },
             { name: "body", label: "Body", widget: "markdown" }
           ]
@@ -63,7 +60,7 @@
             { name: "date", label: "Publish Date", widget: "datetime", format: "MMMM D, YYYY" },
             { name: "read_time", label: "Read Time", widget: "string", default: "5 min read" },
             { name: "excerpt", label: "Excerpt", widget: "text", required: false },
-            { name: "image", label: "Featured Image", widget: "string", default: "https://picsum.photos/seed/blog/1200/600" },
+            { name: "image", label: "Featured Image", widget: "image", default: "https://picsum.photos/seed/blog/1200/600" },
             { name: "image_alt", label: "Image Alt", widget: "string", default: "Blog article" },
             { name: "body", label: "Body", widget: "markdown" }
           ]
@@ -80,7 +77,7 @@
             { name: "date", label: "Publish Date", widget: "datetime", format: "MMMM D, YYYY" },
             { name: "read_time", label: "Read Time", widget: "string", default: "5 min read" },
             { name: "excerpt", label: "Excerpt", widget: "text", required: false },
-            { name: "image", label: "Featured Image", widget: "string", default: "https://picsum.photos/seed/influencer/1200/600" },
+            { name: "image", label: "Featured Image", widget: "image", default: "https://picsum.photos/seed/influencer/1200/600" },
             { name: "image_alt", label: "Image Alt", widget: "string", default: "Influencer article" },
             { name: "body", label: "Body", widget: "markdown" }
           ]

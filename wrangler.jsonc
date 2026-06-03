@@ -18,17 +18,7 @@
     }
   },
   "assets": {
-    "directory": ".",
-    "exclude": [
-      "build.js",
-      "package.json",
-      "package-lock.json",
-      "content",
-      "node_modules",
-      "CNAME",
-      ".gitignore",
-      ".git"
-    ]
+    "directory": "."
   },
   "compatibility_flags": [
     "nodejs_compat"
