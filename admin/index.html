@@ -7,10 +7,9 @@
 </head>
 <body>
   <script>window.CMS_MANUAL_INIT = true;</script>
-  <script src="https://cdn.jsdelivr.net/npm/@sveltia/cms/dist/sveltia-cms.js"></script>
+  <!-- Using official Sveltia CDN as per docs -->
+  <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
   <script>
-  const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-
   const articleFields = [
     { name: "title", label: "Title", widget: "string", required: true },
     { 
@@ -28,8 +27,8 @@
       label: "Publish Date", 
       widget: "datetime", 
       format: "MMMM D, YYYY", 
-      date_format: "YYYY-MM-DD", 
-      time_format: false,
+      date_format: "YYYY-MM-DD",   // ✅ Snake_case (Sveltia requirement)
+      time_format: false,           // ✅ Snake_case (Sveltia requirement)
       required: true
     },
     { name: "read_time", label: "Read Time", widget: "string", default: "5 min read" },
@@ -37,10 +36,9 @@
       name: "image", 
       label: "Featured Image", 
       widget: "image", 
-      // ✅ FIXED: Removed unsupported 'allow_multiple' option.
-      // Sveltia CMS defaults to single-file selection automatically.
+      // ✅ REMOVED 'allow_multiple' (Deprecated in Sveltia)
       media_library: { config: { max_file_size: 5242880 } },
-      hint: "Recommended: 1200x675px (16:9 ratio). Max 5MB.",
+      hint: "Recommended: 1200x675px. Max 5MB.",
       required: true
     },
     { name: "image_alt", label: "Image Alt Text", widget: "string", required: true },
@@ -49,7 +47,7 @@
       label: "Excerpt", 
       widget: "text", 
       required: true, 
-      hint: "Max 160 characters. Used for SEO and card previews." 
+      hint: "Max 160 characters." 
     },
     { 
       name: "body", 
@@ -63,15 +61,12 @@
   CMS.init({
     config: {
       load_config_file: false,
-      local_backend: isLocalhost,
-      backend: isLocalhost ? {
-        name: "proxy",
-        proxy_url: "http://localhost:8081/api/v1"
-      } : {
+      // ✅ REMOVED 'local_backend' (Ignored by Sveltia, proxy servers unsupported)
+      backend: {
         name: "github",
         repo: "Copyright-News/copyrightnews.dpdns.org",
-        branch: "master",
-        auth_methods: ["token"]
+        branch: "master"
+        // ✅ REMOVED 'auth_methods' and 'token' (Sveltia handles auth natively via UI)
       },
       media_folder: "assets/images",
       public_folder: "/assets/images",
@@ -83,11 +78,7 @@
           folder: "content/tech",
           create: true,
           slug: "{{slug}}",
-          sortable_fields: ["date", "title", "category"],
-          view_filters: [
-            { label: "Published This Month", field: "date", pattern: "{{year}}-{{month}}" },
-            { label: "AI Category", field: "category", pattern: "AI" }
-          ],
+          sortable_fields: ["date", "title", "category"], // ✅ Snake_case
           fields: articleFields
         },
         {
@@ -97,7 +88,6 @@
           create: true,
           slug: "{{slug}}",
           sortable_fields: ["date", "title", "category"],
-          view_filters: [{ label: "Published This Month", field: "date", pattern: "{{year}}-{{month}}" }],
           fields: articleFields
         },
         {
@@ -107,10 +97,6 @@
           create: true,
           slug: "{{slug}}",
           sortable_fields: ["date", "title", "category"],
-          view_filters: [
-            { label: "Published This Month", field: "date", pattern: "{{year}}-{{month}}" },
-            { label: "Creator Economy", field: "category", pattern: "Creator Economy" }
-          ],
           fields: articleFields
         }
       ]
