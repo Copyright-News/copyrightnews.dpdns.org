@@ -31,7 +31,7 @@ jobs:
           commit_message: "Auto-build posts from markdown"
           commit_user_name: "Copyright News Bot"
           commit_user_email: "bot@copyrightnews.dpdns.org"
-          file_pattern: "*.html tech/ blog/ influencers/"
+          file_pattern: "dist/"
 
       - name: Deploy to Cloudflare
         uses: cloudflare/wrangler-action@v3

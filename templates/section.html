@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{SECTION_LABEL}} — Copyright News</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="/" class="site-logo">Copyright News</a>
+      <nav class="main-nav">
+        <a href="/">Home</a>
+        <a href="/tech/" class="{{#if isTech}}active{{/if}}">Tech</a>
+        <a href="/influencers/" class="{{#if isInfluencers}}active{{/if}}">Influencers</a>
+        <a href="/blog/" class="{{#if isBlog}}active{{/if}}">Blog</a>
+        <a href="/about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>{{SECTION_LABEL}}</h1>
+      <p>{{SECTION_DESCRIPTION}}</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="post-grid">
+      {{SECTION_POSTS}}
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Copyright News. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

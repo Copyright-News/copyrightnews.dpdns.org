@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copyright News — Tech, Influencers & Culture</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="/" class="site-logo">Copyright News</a>
+      <nav class="main-nav">
+        <a href="/" class="active">Home</a>
+        <a href="/tech/">Tech</a>
+        <a href="/influencers/">Influencers</a>
+        <a href="/blog/">Blog</a>
+        <a href="/about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Copyright News</h1>
+      <p>Your trusted source for technology news, influencer culture, and creator economy insights.</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="section-header">
+      <h2 class="section-title">Technology</h2>
+      <a href="/tech/" class="section-link">View All Tech →</a>
+    </div>
+    <div class="post-grid">
+      {{TECH_POSTS}}
+    </div>
+
+    <div class="section-header">
+      <h2 class="section-title">Influencers</h2>
+      <a href="/influencers/" class="section-link">View All Influencers →</a>
+    </div>
+    <div class="post-grid">
+      {{INFLUENCER_POSTS}}
+    </div>
+
+    <div class="section-header">
+      <h2 class="section-title">Blog</h2>
+      <a href="/blog/" class="section-link">View All Blog Posts →</a>
+    </div>
+    <div class="post-grid">
+      {{BLOG_POSTS}}
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Copyright News. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
