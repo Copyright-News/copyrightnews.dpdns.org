@@ -7,36 +7,78 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner container">
-      <a href="/" class="site-logo">Copyright News</a>
-      <nav class="main-nav">
-        <a href="/">Home</a>
-        <a href="/tech/" class="{{#if isTech}}active{{/if}}">Tech</a>
-        <a href="/influencers/" class="{{#if isInfluencers}}active{{/if}}">Influencers</a>
-        <a href="/blog/" class="{{#if isBlog}}active{{/if}}">Blog</a>
-        <a href="/about.html">About</a>
-      </nav>
+
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div class="container masthead-inner">
+      <div class="masthead-date">{{CURRENT_DATE}}</div>
+      <a href="/" class="logo">Copyright<span>News</span></a>
+      <div class="masthead-social">
+        <a href="#">Twitter</a>
+        <a href="#">RSS</a>
+      </div>
     </div>
   </header>
 
-  <section class="hero">
+  <!-- NAVIGATION -->
+  <nav class="main-nav">
     <div class="container">
-      <h1>{{SECTION_LABEL}}</h1>
-      <p>{{SECTION_DESCRIPTION}}</p>
+      <ul class="nav-list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/tech/" class="{{#if isTech}}active{{/if}}">Technology</a></li>
+        <li><a href="/blog/" class="{{#if isBlog}}active{{/if}}">Blog</a></li>
+        <li><a href="/influencers/" class="{{#if isInfluencers}}active{{/if}}">Influencers</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
     </div>
-  </section>
+  </nav>
 
   <main class="container">
-    <div class="post-grid">
-      {{SECTION_POSTS}}
-    </div>
+    
+    <!-- SECTION HEADER -->
+    <section class="section-block">
+      <div class="section-header">
+        <h1 class="section-title">{{SECTION_LABEL}}</h1>
+        <span class="section-link">{{SECTION_DESCRIPTION}}</span>
+      </div>
+      
+      <div class="editorial-grid">
+        {{SECTION_POSTS}}
+      </div>
+    </section>
+
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2026 Copyright News. All rights reserved.</p>
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">CopyrightNews</div>
+          <p class="footer-desc">In-depth analysis at the intersection of intellectual property, technology, and digital content creation.</p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Sections</h4>
+          <ul class="footer-links">
+            <li><a href="/tech/">Technology</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/influencers/">Influencers</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="/about/">About Us</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Copyright News. All rights reserved.
+      </div>
     </div>
   </footer>
+
 </body>
 </html>
