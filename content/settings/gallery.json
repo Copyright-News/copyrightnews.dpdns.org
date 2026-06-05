@@ -3,15 +3,15 @@
   "subtitle": "Moments captured — events, portraits, and stories in pictures",
   "photos": [
     {
-      "image": "https://picsum.photos/seed/portrait1/400/600",
+      "image": "/assets/images/94448.jpg",
       "caption": "Elegance in Motion"
     },
     {
-      "image": "https://picsum.photos/seed/event1/400/400",
+      "image": "/assets/images/94450.jpg",
       "caption": "Tech Summit 2026 Opening Night"
     },
     {
-      "image": "https://picsum.photos/seed/fashion1/400/700",
+      "image": "/assets/images/94455.jpg",
       "caption": "Spring Collection Reveal"
     },
     {
