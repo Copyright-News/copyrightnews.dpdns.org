@@ -5,6 +5,6 @@
     { "text": "Blog", "url": "/blog/" },
     { "text": "Influencers", "url": "/influencers/" },
     { "text": "Gallery", "url": "/gallery/" },
-    { "text": "About", "url": "/about.html" }
+    { "text": "About", "url": "/about/" }
   ]
 }

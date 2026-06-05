@@ -1,0 +1,54 @@
+{
+  "title": "Gallery",
+  "subtitle": "Moments captured — events, portraits, and stories in pictures",
+  "photos": [
+    {
+      "image": "https://picsum.photos/seed/portrait1/400/600",
+      "caption": "Elegance in Motion"
+    },
+    {
+      "image": "https://picsum.photos/seed/event1/400/400",
+      "caption": "Tech Summit 2026 Opening Night"
+    },
+    {
+      "image": "https://picsum.photos/seed/fashion1/400/700",
+      "caption": "Spring Collection Reveal"
+    },
+    {
+      "image": "https://picsum.photos/seed/travel1/400/300",
+      "caption": "Santorini Sunset"
+    },
+    {
+      "image": "https://picsum.photos/seed/portrait2/400/500",
+      "caption": "The Artist's Gaze"
+    },
+    {
+      "image": "https://picsum.photos/seed/event2/400/350",
+      "caption": "Film Premiere: Red Carpet"
+    },
+    {
+      "image": "https://picsum.photos/seed/fashion2/400/550",
+      "caption": "Paris Fashion Week Backstage"
+    },
+    {
+      "image": "https://picsum.photos/seed/travel2/400/450",
+      "caption": "Tokyo Nights"
+    },
+    {
+      "image": "https://picsum.photos/seed/portrait3/400/650",
+      "caption": "Golden Hour"
+    },
+    {
+      "image": "https://picsum.photos/seed/event3/400/380",
+      "caption": "Charity Gala 2026"
+    },
+    {
+      "image": "https://picsum.photos/seed/fashion3/400/480",
+      "caption": "Street Style: Milan"
+    },
+    {
+      "image": "https://picsum.photos/seed/travel3/400/420",
+      "caption": "Bali Hidden Beaches"
+    }
+  ]
+}

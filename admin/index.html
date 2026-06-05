@@ -9,105 +9,87 @@
   <script>window.CMS_MANUAL_INIT = true;</script>
   <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
   <script>
-  // --- 1. STANDARD ARTICLE FIELDS ---
   const articleFields = [
     { name: "title", label: "Title", widget: "string", required: true },
-    { 
-      name: "category", 
-      label: "Category", 
-      widget: "select", 
-      options: ["AI", "Web Dev", "Security", "Hardware", "Software", "Policy", "Creator Economy", "Breaking News", "Opinion"],
-      default: "Web Dev",
-      required: true
-    },
-    { name: "tags", label: "Tags", widget: "list", allow_add: true, hint: "Press Enter after each tag" },
+    { name: "category", label: "Category", widget: "select", options: ["AI", "Web Dev", "Security", "Hardware", "Software", "Policy", "Creator Economy", "Breaking News", "Opinion"], default: "Web Dev", required: true },
+    { name: "tags", label: "Tags", widget: "list", allow_add: true },
     { name: "author", label: "Author", widget: "string", default: "Copyright News" },
-    { 
-      name: "date", 
-      label: "Publish Date", 
-      widget: "datetime", 
-      format: "MMMM D, YYYY", 
-      date_format: "YYYY-MM-DD",   // Snake_case required by Sveltia
-      time_format: false,           // Snake_case required by Sveltia
-      required: true
-    },
+    { name: "date", label: "Publish Date", widget: "datetime", format: "MMMM D, YYYY", date_format: "YYYY-MM-DD", time_format: false, required: true },
     { name: "read_time", label: "Read Time", widget: "string", default: "5 min read" },
-    { 
-      name: "image", 
-      label: "Featured Image", 
-      widget: "image", 
-      media_library: { config: { max_file_size: 5242880 } },
-      hint: "Recommended: 1200x675px. Max 5MB.",
-      required: true
-    },
+    { name: "image", label: "Featured Image", widget: "image", media_library: { config: { max_file_size: 5242880 } }, required: true },
     { name: "image_alt", label: "Image Alt Text", widget: "string", required: true },
-    { 
-      name: "excerpt", 
-      label: "Excerpt", 
-      widget: "text", 
-      required: true, 
-      hint: "Max 160 characters." 
-    },
-    { 
-      name: "body", 
-      label: "Article Content", 
-      widget: "markdown", 
-      modes: ["rich_text", "raw"],
-      required: true
-    }
+    { name: "excerpt", label: "Excerpt", widget: "text", required: true },
+    { name: "body", label: "Article Content", widget: "markdown", modes: ["rich_text", "raw"], required: true }
   ];
 
-  // --- 2. INITIALIZE CMS ---
   CMS.init({
     config: {
       load_config_file: false,
-      backend: {
-        name: "github",
-        repo: "Copyright-News/copyrightnews.dpdns.org",
-        branch: "master"
-      },
+      backend: { name: "github", repo: "Copyright-News/copyrightnews.dpdns.org", branch: "master" },
       media_folder: "assets/images",
       public_folder: "/assets/images",
       slug: { encoding: "ascii", clean_accents: true, sanitize_replacement: "-" },
-      
       collections: [
-        // ==========================================
-        // CONTENT COLLECTIONS (Edit/Delete Posts)
-        // ==========================================
-        {
-          name: "tech",
-          label: "📰 Tech Articles",
-          folder: "content/tech",
-          create: true, // Allows creating NEW posts
-          slug: "{{slug}}",
-          sortable_fields: ["date", "title", "category"],
-          fields: articleFields
-        },
-        {
-          name: "blog",
-          label: "📝 Blog Posts",
-          folder: "content/blog",
-          create: true,
-          slug: "{{slug}}",
-          sortable_fields: ["date", "title", "category"],
-          fields: articleFields
-        },
-        {
-          name: "influencers",
-          label: "🌟 Influencer Articles",
-          folder: "content/influencers",
-          create: true,
-          slug: "{{slug}}",
-          sortable_fields: ["date", "title", "category"],
-          fields: articleFields
-        },
+        // 1. ARTICLES
+        { name: "tech", label: "📰 Tech Articles", folder: "content/tech", create: true, slug: "{{slug}}", sortable_fields: ["date", "title"], fields: articleFields },
+        { name: "blog", label: "📝 Blog Posts", folder: "content/blog", create: true, slug: "{{slug}}", sortable_fields: ["date", "title"], fields: articleFields },
+        { name: "influencers", label: "🌟 Influencers", folder: "content/influencers", create: true, slug: "{{slug}}", sortable_fields: ["date", "title"], fields: articleFields },
 
-        // ==========================================
-        // ADMIN SETTINGS COLLECTIONS (Full Site Control)
-        // ==========================================
+        // 2. FULL ACCESS STATIC PAGES
         {
-          name: "settings",
-          label: "⚙️ Site Settings",
+          name: "pages",
+          label: "📄 Static Pages",
+          files: [
+            {
+              label: "About Page",
+              name: "about",
+              file: "content/settings/about.json",
+              fields: [
+                { label: "Page Title", name: "title", widget: "string", default: "About Copyright News" },
+                { label: "Hero Subtitle", name: "subtitle", widget: "text", default: "Independent digital publication covering the intersection of technology, culture, and creativity." },
+                { label: "Mission Title", name: "mission_title", widget: "string", default: "Our Mission" },
+                { label: "Mission Text", name: "mission_text", widget: "markdown" },
+                { label: "Story Title", name: "story_title", widget: "string", default: "Our Story" },
+                { label: "Story Text", name: "story_text", widget: "markdown" },
+                {
+                  label: "Team Members", name: "team", widget: "list",
+                  fields: [
+                    { label: "Name", name: "name", widget: "string" },
+                    { label: "Role", name: "role", widget: "string" },
+                    { label: "Photo", name: "image", widget: "image" }
+                  ]
+                },
+                {
+                  label: "Core Values", name: "values", widget: "list",
+                  fields: [
+                    { label: "Value Title", name: "title", widget: "string" },
+                    { label: "Description", name: "text", widget: "text" }
+                  ]
+                }
+              ]
+            },
+            {
+              label: "Gallery Page",
+              name: "gallery",
+              file: "content/settings/gallery.json",
+              fields: [
+                { label: "Page Title", name: "title", widget: "string", default: "Gallery" },
+                { label: "Subtitle", name: "subtitle", widget: "string", default: "Moments captured — events, portraits, and stories in pictures" },
+                {
+                  label: "Photos", name: "photos", widget: "list",
+                  fields: [
+                    { label: "Image", name: "image", widget: "image" },
+                    { label: "Caption (Optional)", name: "caption", widget: "string", required: false }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        
+        // 3. GLOBAL SITE SETTINGS
+        {
+          name: "settings", label: "⚙️ Site Settings",
           files: [
             {
               label: "Homepage & Branding",
@@ -132,7 +114,7 @@
                   widget: "list",
                   fields: [
                     { label: "Link Text", name: "text", widget: "string" },
-                    { label: "URL (e.g. /tech/)", name: "url", widget: "string" }
+                    { label: "URL", name: "url", widget: "string" }
                   ]
                 }
               ]

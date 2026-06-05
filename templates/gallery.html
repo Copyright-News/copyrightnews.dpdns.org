@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{TITLE}} | {{SITE_TITLE}}</title>
+  <meta name="description" content="{{SUBTITLE}}">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <!-- SITE NAVIGATION HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="site-logo">{{SITE_TITLE_HTML}}</a>
+      
+      <!-- Top Bar Search (Interactive) -->
+      <div class="header-search">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" placeholder="Search stories, topics, tags..." id="headerSearchInput">
+      </div>
+
+      <nav class="header-nav" id="headerNav">
+        <ul class="nav-links">
+          {{NAV_LINKS}}
+          <li><a href="/admin/" class="btn-submit-story">Submit a Story</a></li>
+        </ul>
+      </nav>
+      
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="about-hero">
+      <div class="container">
+        <h1 class="about-title">{{TITLE}}</h1>
+        <p class="about-subtitle">{{SUBTITLE}}</p>
+      </div>
+    </section>
+
+    <section class="container" style="padding: 4rem 1.5rem;">
+      <div class="masonry-gallery" id="galleryGrid">
+        {{GALLERY_ITEMS}}
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX MODAL OVERLAY -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev">‹</button>
+    <img id="lightboxImg" src="" alt="">
+    <button class="lightbox-nav lightbox-next" id="lightboxNext">›</button>
+  </div>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">{{SITE_TITLE_HTML}}</div>
+          <p class="footer-desc">{{SITE_TITLE}} — {{SITE_TAGLINE}}</p>
+        </div>
+        <div class="footer-col">
+          <h4>Sections</h4>
+          <ul>
+            <li><a href="/tech/">Technology</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/influencers/">Influencers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about/">About Us</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/privacy.html">Privacy Policy</a></li>
+            <li><a href="/terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>{{FOOTER_TEXT}}</p>
+        <div class="footer-bottom-links">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

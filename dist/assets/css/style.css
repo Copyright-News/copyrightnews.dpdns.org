@@ -1105,3 +1105,38 @@ img {
     display: none; /* Hide top right buttons inside modal on tiny viewports */
   }
 }
+
+/* === ABOUT PAGE DESIGN === */
+.about-hero { text-align: center; padding: 6rem 0 4rem; background: var(--bg-secondary); border-bottom: 1px solid var(--border); }
+.about-title { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 1.5rem; letter-spacing: -0.03em; }
+.about-subtitle { font-size: 1.35rem; color: var(--text-muted); max-width: 750px; margin: 0 auto; font-family: var(--font-serif); font-style: italic; line-height: 1.6; }
+
+.about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; padding: 5rem 1.5rem; }
+.about-block h2 { font-size: 2.25rem; margin-bottom: 1.5rem; border-left: 4px solid var(--accent); padding-left: 1.25rem; }
+
+.team-section { background: var(--bg-secondary); padding: 5rem 0; }
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2.5rem; }
+.team-card { text-align: center; background: var(--bg-primary); padding: 2.5rem 1.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); transition: transform 0.3s; }
+.team-card:hover { transform: translateY(-8px); }
+.team-card img { width: 130px; height: 130px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.5rem; border: 4px solid var(--bg-secondary); box-shadow: var(--shadow-sm); }
+.team-card h3 { font-size: 1.35rem; margin-bottom: 0.25rem; }
+.team-card p { color: var(--accent); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+
+.values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 5rem; }
+.value-card { padding: 2.5rem; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--bg-primary); transition: all 0.3s ease; }
+.value-card:hover { border-color: var(--accent); box-shadow: var(--shadow-lg); }
+.value-card h3 { color: var(--accent); font-size: 1.5rem; margin-bottom: 0.75rem; }
+
+/* === GALLERY PAGE DESIGN (Masonry) === */
+.masonry-gallery { columns: 3; column-gap: 1.5rem; }
+.gallery-item { break-inside: avoid; margin-bottom: 1.5rem; border-radius: var(--radius-lg); overflow: hidden; position: relative; transition: transform 0.3s; box-shadow: var(--shadow-sm); }
+.gallery-item:hover { transform: scale(1.02); box-shadow: var(--shadow-lg); }
+.gallery-item img { width: 100%; display: block; }
+.gallery-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); color: white; padding: 2rem 1.25rem 1.25rem; font-size: 0.95rem; font-weight: 500; opacity: 0; transition: opacity 0.3s; }
+.gallery-item:hover .gallery-caption { opacity: 1; }
+
+@media (max-width: 992px) { .masonry-gallery { columns: 2; } }
+@media (max-width: 768px) { 
+  .about-content { grid-template-columns: 1fr; gap: 3rem; padding: 3rem 1.5rem; } 
+  .masonry-gallery { columns: 1; } 
+}

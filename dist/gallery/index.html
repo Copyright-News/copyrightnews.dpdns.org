@@ -3,141 +3,118 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery — Copyright News</title>
-  <meta name="description" content="Photo gallery from Copyright News — events, portraits, and stories in pictures.">
-  <meta property="og:title" content="Gallery — Copyright News">
-  <meta property="og:description" content="Photo gallery from Copyright News — events, portraits, and stories in pictures.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://copyrightnews.dpdns.org/gallery/">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <title>Gallery | Copyright News</title>
+  <meta name="description" content="Moments captured — events, portraits, and stories in pictures">
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
+  <!-- SITE NAVIGATION HEADER -->
   <header class="site-header">
-    <div class="header-inner">
-      <a href="/" class="site-logo">Copyright <span>News</span></a>
-      <button class="nav-toggle" id="navToggle" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-      <nav>
-        <ul class="nav-links" id="navLinks">
+    <div class="container header-inner">
+      <a href="/" class="site-logo">Copyright<span>News</span></a>
+      
+      <!-- Top Bar Search (Interactive) -->
+      <div class="header-search">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" placeholder="Search stories, topics, tags..." id="headerSearchInput">
+      </div>
+
+      <nav class="header-nav" id="headerNav">
+        <ul class="nav-links">
           <li><a href="/">Home</a></li>
-          <li><a href="../tech/">Tech</a></li>
-          <li><a href="../influencers/">Influencers</a></li>
-          <li><a href="../blog/">Blog</a></li>
-          <li><a href="../gallery/" class="active">Gallery</a></li>
-          <li><a href="../about.html">About</a></li>
+<li><a href="/tech/">Technology</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/influencers/">Influencers</a></li>
+<li><a href="/gallery/" class="active">Gallery</a></li>
+<li><a href="/about/">About</a></li>
+          <li><a href="/admin/" class="btn-submit-story">Submit a Story</a></li>
         </ul>
       </nav>
+      
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
 
   <main>
-    <section class="gallery-page">
+    <section class="about-hero">
       <div class="container">
-        <div class="gallery-header">
-          <h1>Gallery</h1>
-          <p>Moments captured — events, portraits, and stories in pictures</p>
-        </div>
+        <h1 class="about-title">Gallery</h1>
+        <p class="about-subtitle">Moments captured — events, portraits, and stories in pictures</p>
+      </div>
+    </section>
 
-        <div class="gallery-filters">
-          <button class="active" data-filter="all">All</button>
-          <button data-filter="events">Events</button>
-          <button data-filter="portraits">Portraits</button>
-          <button data-filter="fashion">Fashion</button>
-          <button data-filter="travel">Travel</button>
-        </div>
-
-        <div class="gallery-grid" id="galleryGrid">
-          <div class="gallery-item" data-category="portraits">
-            <img src="https://picsum.photos/seed/portrait1/400/600" alt="Portrait" loading="lazy">
-            <div class="overlay">
-              <h4>Elegance in Motion</h4>
-              <span>Portrait • June 2026</span>
-            </div>
-          </div>
-          <div class="gallery-item" data-category="events">
-            <img src="https://picsum.photos/seed/event1/400/400" alt="Event" loading="lazy">
-            <div class="overlay">
-              <h4>Tech Summit 2026 Opening Night</h4>
-              <span>Event • May 2026</span>
-            </div>
-          </div>
-          <div class="gallery-item" data-category="fashion">
-            <img src="https://picsum.photos/seed/fashion1/400/700" alt="Fashion" loading="lazy">
-            <div class="overlay">
-              <h4>Spring Collection Reveal</h4>
-              <span>Fashion • May 2026</span>
-            </div>
-          </div>
-          <div class="gallery-item" data-category="travel">
-            <img src="https://picsum.photos/seed/travel1/400/300" alt="Travel" loading="lazy">
-            <div class="overlay">
-              <h4>Santorini Sunset</h4>
-              <span>Travel • April 2026</span>
-            </div>
-          </div>
-          <div class="gallery-item" data-category="portraits">
-            <img src="https://picsum.photos/seed/portrait2/400/500" alt="Portrait" loading="lazy">
-            <div class="overlay">
-              <h4>The Artist's Gaze</h4>
-              <span>Portrait • June 2026</span>
-            </div>
-          </div>
-          <div class="gallery-item" data-category="events">
-            <img src="https://picsum.photos/seed/event2/400/350" alt="Event" loading="lazy">
-            <div class="overlay">
-              <h4>Film Premiere: Red Carpet</h4>
-              <span>Event • May 2026</span>
-            </div>
-          </div>
-          <div class="gallery-item" data-category="fashion">
-            <img src="https://picsum.photos/seed/fashion2/400/550" alt="Fashion" loading="lazy">
-            <div class="overlay">
-              <h4>Paris Fashion Week Backstage</h4>
-              <span>Fashion • March 2026</span>
-            </div>
-          </div>
-          <div class="gallery-item" data-category="travel">
-            <img src="https://picsum.photos/seed/travel2/400/450" alt="Travel" loading="lazy">
-            <div class="overlay">
-              <h4>Tokyo Nights</h4>
-              <span>Travel • April 2026</span>
-            </div>
-          </div>
-          <div class="gallery-item" data-category="portraits">
-            <img src="https://picsum.photos/seed/portrait3/400/650" alt="Portrait" loading="lazy">
-            <div class="overlay">
-              <h4>Golden Hour</h4>
-              <span>Portrait • May 2026</span>
-            </div>
-          </div>
-          <div class="gallery-item" data-category="events">
-            <img src="https://picsum.photos/seed/event3/400/380" alt="Event" loading="lazy">
-            <div class="overlay">
-              <h4>Charity Gala 2026</h4>
-              <span>Event • April 2026</span>
-            </div>
-          </div>
-          <div class="gallery-item" data-category="fashion">
-            <img src="https://picsum.photos/seed/fashion3/400/480" alt="Fashion" loading="lazy">
-            <div class="overlay">
-              <h4>Street Style: Milan</h4>
-              <span>Fashion • February 2026</span>
-            </div>
-          </div>
-          <div class="gallery-item" data-category="travel">
-            <img src="https://picsum.photos/seed/travel3/400/420" alt="Travel" loading="lazy">
-            <div class="overlay">
-              <h4>Bali Hidden Beaches</h4>
-              <span>Travel • March 2026</span>
-            </div>
-          </div>
-        </div>
+    <section class="container" style="padding: 4rem 1.5rem;">
+      <div class="masonry-gallery" id="galleryGrid">
+        
+    <div class="gallery-item">
+      <img src="https://picsum.photos/seed/portrait1/400/600" alt="Elegance in Motion" loading="lazy">
+      <div class="gallery-caption">Elegance in Motion</div>
+    </div>
+  
+    <div class="gallery-item">
+      <img src="https://picsum.photos/seed/event1/400/400" alt="Tech Summit 2026 Opening Night" loading="lazy">
+      <div class="gallery-caption">Tech Summit 2026 Opening Night</div>
+    </div>
+  
+    <div class="gallery-item">
+      <img src="https://picsum.photos/seed/fashion1/400/700" alt="Spring Collection Reveal" loading="lazy">
+      <div class="gallery-caption">Spring Collection Reveal</div>
+    </div>
+  
+    <div class="gallery-item">
+      <img src="https://picsum.photos/seed/travel1/400/300" alt="Santorini Sunset" loading="lazy">
+      <div class="gallery-caption">Santorini Sunset</div>
+    </div>
+  
+    <div class="gallery-item">
+      <img src="https://picsum.photos/seed/portrait2/400/500" alt="The Artist's Gaze" loading="lazy">
+      <div class="gallery-caption">The Artist's Gaze</div>
+    </div>
+  
+    <div class="gallery-item">
+      <img src="https://picsum.photos/seed/event2/400/350" alt="Film Premiere: Red Carpet" loading="lazy">
+      <div class="gallery-caption">Film Premiere: Red Carpet</div>
+    </div>
+  
+    <div class="gallery-item">
+      <img src="https://picsum.photos/seed/fashion2/400/550" alt="Paris Fashion Week Backstage" loading="lazy">
+      <div class="gallery-caption">Paris Fashion Week Backstage</div>
+    </div>
+  
+    <div class="gallery-item">
+      <img src="https://picsum.photos/seed/travel2/400/450" alt="Tokyo Nights" loading="lazy">
+      <div class="gallery-caption">Tokyo Nights</div>
+    </div>
+  
+    <div class="gallery-item">
+      <img src="https://picsum.photos/seed/portrait3/400/650" alt="Golden Hour" loading="lazy">
+      <div class="gallery-caption">Golden Hour</div>
+    </div>
+  
+    <div class="gallery-item">
+      <img src="https://picsum.photos/seed/event3/400/380" alt="Charity Gala 2026" loading="lazy">
+      <div class="gallery-caption">Charity Gala 2026</div>
+    </div>
+  
+    <div class="gallery-item">
+      <img src="https://picsum.photos/seed/fashion3/400/480" alt="Street Style: Milan" loading="lazy">
+      <div class="gallery-caption">Street Style: Milan</div>
+    </div>
+  
+    <div class="gallery-item">
+      <img src="https://picsum.photos/seed/travel3/400/420" alt="Bali Hidden Beaches" loading="lazy">
+      <div class="gallery-caption">Bali Hidden Beaches</div>
+    </div>
+  
       </div>
     </section>
   </main>
 
+  <!-- LIGHTBOX MODAL OVERLAY -->
   <div class="lightbox" id="lightbox">
     <button class="lightbox-close" id="lightboxClose">&times;</button>
     <button class="lightbox-nav lightbox-prev" id="lightboxPrev">‹</button>
@@ -145,47 +122,47 @@
     <button class="lightbox-nav lightbox-next" id="lightboxNext">›</button>
   </div>
 
+  <!-- SITE FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <h4>Copyright News</h4>
-          <p>Your trusted source for technology news, influencer culture, and creator economy insights.</p>
+          <div class="footer-logo">Copyright<span>News</span></div>
+          <p class="footer-desc">Copyright News — Policy • Tech • Creators</p>
         </div>
         <div class="footer-col">
           <h4>Sections</h4>
           <ul>
-            <li><a href="../tech/">Technology</a></li>
-            <li><a href="../influencers/">Influencers</a></li>
-            <li><a href="../blog/">Blog</a></li>
-            <li><a href="../gallery/">Gallery</a></li>
+            <li><a href="/tech/">Technology</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/influencers/">Influencers</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Company</h4>
           <ul>
-            <li><a href="../about.html">About Us</a></li>
-            <li><a href="../contact.html">Contact</a></li>
-            <li><a href="../privacy.html">Privacy Policy</a></li>
-            <li><a href="../terms.html">Terms of Service</a></li>
+            <li><a href="/about/">About Us</a></li>
+            <li><a href="/contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Follow Us</h4>
+          <h4>Legal</h4>
           <ul>
-            <li><a href="https://github.com/Copyright-News" target="_blank">GitHub</a></li>
-            <li><a href="https://t.me/copyrightnews" target="_blank">Telegram</a></li>
-            <li><a href="https://x.com/copyrightnews" target="_blank">Twitter / X</a></li>
-            <li><a href="https://instagram.com/copyrightnews" target="_blank">Instagram</a></li>
+            <li><a href="/privacy.html">Privacy Policy</a></li>
+            <li><a href="/terms.html">Terms of Service</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Copyright News. All rights reserved.</p>
+        <p>© 2026 Copyright News. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <script src="../assets/js/main.js"></script>
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>

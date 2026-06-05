@@ -16,6 +16,8 @@ const templates = {
   index: fs.readFileSync(path.join(TEMPLATES_DIR, 'index.html'), 'utf-8'),
   section: fs.readFileSync(path.join(TEMPLATES_DIR, 'section.html'), 'utf-8'),
   article: fs.readFileSync(path.join(TEMPLATES_DIR, 'article.html'), 'utf-8'),
+  about: fs.readFileSync(path.join(TEMPLATES_DIR, 'about.html'), 'utf-8'),
+  gallery: fs.readFileSync(path.join(TEMPLATES_DIR, 'gallery.html'), 'utf-8'),
 };
 
 const SECTION_META = {
@@ -42,7 +44,7 @@ let navConfig = {
     { text: "Blog", url: "/blog/" },
     { text: "Influencers", url: "/influencers/" },
     { text: "Gallery", url: "/gallery/" },
-    { text: "About", url: "/about.html" }
+    { text: "About", url: "/about/" }
   ]
 };
 
@@ -258,7 +260,7 @@ const homepageHtml = render(templates.index, {
 
 fs.writeFileSync(path.join(OUTPUT_DIR, 'index.html'), homepageHtml);
 
-// 3. Copy Assets, Admin, Gallery & Static Pages
+// 3. Copy Assets, Admin & Static Files
 if (fs.existsSync(ASSETS_DIR)) {
   fs.cpSync(ASSETS_DIR, path.join(OUTPUT_DIR, 'assets'), { recursive: true });
   console.log('✓ Copied assets/');
@@ -270,12 +272,6 @@ if (fs.existsSync(adminDir)) {
   console.log('✓ Copied admin/');
 }
 
-const galleryDir = path.join(ROOT, 'gallery');
-if (fs.existsSync(galleryDir)) {
-  fs.cpSync(galleryDir, path.join(OUTPUT_DIR, 'gallery'), { recursive: true });
-  console.log('✓ Copied gallery/');
-}
-
 const extraFiles = ['robots.txt', 'sitemap.xml'];
 for (const file of extraFiles) {
   const src = path.join(ROOT, file);
@@ -285,7 +281,7 @@ for (const file of extraFiles) {
   }
 }
 
-const staticPages = ['about.html', 'contact.html', 'privacy.html', 'terms.html', '404.html'];
+const staticPages = ['contact.html', 'privacy.html', 'terms.html', '404.html'];
 for (const page of staticPages) {
   const src = path.join(ROOT, page);
   if (fs.existsSync(src)) {
@@ -293,5 +289,103 @@ for (const page of staticPages) {
     console.log(`✓ Copied ${page}`);
   }
 }
+
+// 4. Build Dynamic About & Gallery Pages
+function buildDynamicPages() {
+  const settingsDir = path.join(CONTENT_DIR, 'settings');
+  if (!fs.existsSync(settingsDir)) fs.mkdirSync(settingsDir, { recursive: true });
+
+  // A. BUILD ABOUT PAGE
+  const aboutPath = path.join(settingsDir, 'about.json');
+  let aboutData = {
+    title: "About Copyright News",
+    subtitle: "Independent digital publication covering the intersection of technology, culture, and creativity.",
+    mission_title: "Our Mission",
+    mission_text: "We exist to document and analyze the landscape of technology and influencer culture.",
+    story_title: "Our Story",
+    story_text: "Founded in 2026, Copyright News emerged to cover tech, influencers, and the creator economy.",
+    team: [],
+    values: []
+  };
+
+  if (fs.existsSync(aboutPath)) {
+    try {
+      aboutData = JSON.parse(fs.readFileSync(aboutPath, 'utf-8'));
+    } catch (e) {
+      console.warn('⚠ Failed to parse about.json, using defaults:', e.message);
+    }
+  }
+
+  const teamCards = (aboutData.team || []).map(m => `
+    <div class="team-card">
+      <img src="${m.image}" alt="${m.name}">
+      <h3>${m.name}</h3>
+      <p>${m.role}</p>
+    </div>
+  `).join('');
+
+  const valueCards = (aboutData.values || []).map(v => `
+    <div class="value-card">
+      <h3>${v.title}</h3>
+      <p>${v.text}</p>
+    </div>
+  `).join('');
+
+  const aboutHtml = render(templates.about, {
+    ...siteVars,
+    NAV_LINKS: buildNavLinks('/about/'),
+    TITLE: aboutData.title,
+    SUBTITLE: aboutData.subtitle,
+    MISSION_TITLE: aboutData.mission_title,
+    MISSION_TEXT: marked.parse(aboutData.mission_text || ''),
+    STORY_TITLE: aboutData.story_title,
+    STORY_TEXT: marked.parse(aboutData.story_text || ''),
+    TEAM_CARDS: teamCards,
+    VALUES_CARDS: valueCards
+  });
+
+  const aboutOutDir = path.join(OUTPUT_DIR, 'about');
+  fs.mkdirSync(aboutOutDir, { recursive: true });
+  fs.writeFileSync(path.join(aboutOutDir, 'index.html'), aboutHtml);
+  console.log('✅ Built dynamic /about/');
+
+  // B. BUILD GALLERY PAGE
+  const galleryPath = path.join(settingsDir, 'gallery.json');
+  let galleryData = {
+    title: "Gallery",
+    subtitle: "Moments captured — events, portraits, and stories in pictures",
+    photos: []
+  };
+
+  if (fs.existsSync(galleryPath)) {
+    try {
+      galleryData = JSON.parse(fs.readFileSync(galleryPath, 'utf-8'));
+    } catch (e) {
+      console.warn('⚠ Failed to parse gallery.json, using defaults:', e.message);
+    }
+  }
+
+  const galleryItems = (galleryData.photos || []).map(p => `
+    <div class="gallery-item">
+      <img src="${p.image}" alt="${p.caption || 'Gallery'}" loading="lazy">
+      ${p.caption ? `<div class="gallery-caption">${p.caption}</div>` : ''}
+    </div>
+  `).join('');
+
+  const galleryHtml = render(templates.gallery, {
+    ...siteVars,
+    NAV_LINKS: buildNavLinks('/gallery/'),
+    TITLE: galleryData.title,
+    SUBTITLE: galleryData.subtitle,
+    GALLERY_ITEMS: galleryItems
+  });
+
+  const galleryOutDir = path.join(OUTPUT_DIR, 'gallery');
+  fs.mkdirSync(galleryOutDir, { recursive: true });
+  fs.writeFileSync(path.join(galleryOutDir, 'index.html'), galleryHtml);
+  console.log('✅ Built dynamic /gallery/');
+}
+
+buildDynamicPages();
 
 console.log('\n🎉 Dynamic Unsplash-style Build complete! Output in /dist');
