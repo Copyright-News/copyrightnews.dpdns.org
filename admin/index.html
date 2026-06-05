@@ -37,7 +37,8 @@
       name: "image", 
       label: "Featured Image", 
       widget: "image", 
-      allow_multiple: false,
+      // ✅ FIXED: Removed unsupported 'allow_multiple' option.
+      // Sveltia CMS defaults to single-file selection automatically.
       media_library: { config: { max_file_size: 5242880 } },
       hint: "Recommended: 1200x675px (16:9 ratio). Max 5MB.",
       required: true
