@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{TITLE}} — Copyright News</title>
-  <meta name="description" content="{{EXCERPT}}">
+  <title>Rethinking the Licenses: The Future of Open Source — Copyright News</title>
+  <meta name="description" content="As commercial software models exploit open codebase distributions, a new wave of 'fair share' licenses is testing the traditional boundaries of free software.">
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
@@ -53,27 +53,44 @@
   <main class="article-container">
     <article>
       <header class="article-header">
-        <h1 class="article-title">{{TITLE}}</h1>
+        <h1 class="article-title">Rethinking the Licenses: The Future of Open Source</h1>
         <div class="article-meta">
-          <span>{{CATEGORY}}</span>
+          <span>Software</span>
           <span>•</span>
-          <span>By {{AUTHOR}}</span>
+          <span>By Linus Lindqvist</span>
           <span>•</span>
-          <span>{{DATE}}</span>
+          <span>May 28, 2026</span>
           <span>•</span>
-          <span>{{READ_TIME}}</span>
+          <span>7 min read</span>
         </div>
       </header>
 
-      {{#if IMAGE}}
-      <img class="article-hero-image" src="{{IMAGE}}" alt="{{IMAGE_ALT}}" />
-      {{/if}}
+      
+      <img class="article-hero-image" src="https://picsum.photos/id/60/800/900" alt="Abstract green code lines" />
+      
 
       <div class="prose">
-        {{BODY}}
+        <p>Open-source software has built the modern web. From databases like Redis and PostgreSQL to languages like Python and JavaScript, open collaboration has accelerated innovation. But as cloud giants monetize these open-source tools without contributing back, developers are hitting back with licensing changes.</p>
+<p>The definition of &quot;open&quot; is being re-evaluated: <strong>can a license protect developers&#39; labor while maintaining collaborative freedom?</strong></p>
+<h2>The Commercial Exploitation Dilemma</h2>
+<p>When a database developer releases code under a permissive license (like MIT or BSD), cloud hosting providers can package, host, and sell that code as a service at scale. The hosting provider captures the economic value, while the original creator bears the cost of maintenance and support.</p>
+<blockquote>
+<p>&quot;We wrote the software, we maintain the software, but someone else is collecting millions of dollars in hosted revenue from our work without giving anything back.&quot;</p>
+</blockquote>
+<h2>The Rise of Fair-Share Licenses</h2>
+<p>To combat this, several high-profile projects have moved from traditional OSI-approved licenses to alternative sources-available licensing schemes:</p>
+<ul>
+<li><strong>Server Side Public License (SSPL):</strong> Pioneered by MongoDB, requiring anyone offering the database as a hosted service to open-source their entire management stack.</li>
+<li><strong>Business Source License (BSL):</strong> Used by MariaDB, HashiCorp, and Redis. It keeps code open for non-production use but restricts commercial hosting, converting to a standard open-source license after a set period (usually 3-4 years).</li>
+</ul>
+<h2>The Open-Source Ideology Divide</h2>
+<p>These license migrations have sparked intense debates. The Open Source Initiative (OSI) does not recognize these licenses as &quot;open source&quot; because they restrict usage criteria (such as commercial deployment fields).</p>
+<p>Critics argue that source-available licenses fragment the developer ecosystem and make dependency management more complicated. Proponents counter that without these protections, independent software development will become financially unsustainable.</p>
+<p>Ultimately, finding a sustainable balance between commercial viability and open sharing will determine whether the next generation of infrastructure code is written in public or behind closed proprietary doors.</p>
+
       </div>
 
-      <a href="/{{SECTION}}/" class="back-link">← Back to {{SECTION_LABEL}}</a>
+      <a href="/blog/" class="back-link">← Back to Blog</a>
     </article>
   </main>
 

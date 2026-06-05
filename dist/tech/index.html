@@ -4,81 +4,264 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tech — Copyright News</title>
+  <meta name="description" content="Deep dives into AI, web development, security, and software engineering.">
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 
-  <!-- MASTHEAD -->
-  <header class="masthead">
-    <div class="container masthead-inner">
-      <div class="masthead-date">Friday, June 5, 2026</div>
-      <a href="/" class="logo">Copyright<span>News</span></a>
-      <div class="masthead-social">
-        <a href="#">Twitter</a>
-        <a href="#">RSS</a>
+  <!-- SITE NAVIGATION HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="site-logo">Copyright<span>News</span></a>
+      
+      <!-- Top Bar Search (Interactive) -->
+      <div class="header-search">
+        <input type="text" id="headerSearchInput" placeholder="Search in Tech...">
       </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="header-nav" id="headerNav">
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tech/" class="active">Technology</a></li>
+          <li><a href="/blog/" class="">Blog</a></li>
+          <li><a href="/influencers/" class="">Influencers</a></li>
+          <li><a href="/gallery/">Gallery</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/admin/" class="btn-submit-story">Submit a Story</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <!-- NAVIGATION -->
-  <nav class="main-nav">
+  <!-- CATEGORY SCROLLBAR -->
+  <nav class="category-bar">
     <div class="container">
-      <ul class="nav-list">
-        <li><a href="/">Home</a></li>
-        <li><a href="/tech/" class="active">Technology</a></li>
-        <li><a href="/blog/" class="">Blog</a></li>
-        <li><a href="/influencers/" class="">Influencers</a></li>
-        <li><a href="/about/">About</a></li>
+      <ul class="category-list" id="categoryScroll">
+        <li><a href="/" data-category="all">All Editorial</a></li>
+        <li><a href="/tech/" class="active" data-category="tech">Technology</a></li>
+        <li><a href="/blog/" class="" data-category="blog">Blog</a></li>
+        <li><a href="/influencers/" class="" data-category="influencers">Influencers</a></li>
       </ul>
     </div>
   </nav>
 
-  <main class="container">
-    
-    <!-- SECTION HEADER -->
-    <section class="section-block">
-      <div class="section-header">
-        <h1 class="section-title">Tech</h1>
-        <span class="section-link">Deep dives into AI, web development, security, and software engineering.</span>
+  <!-- CATEGORY HEADER BLOCK -->
+  <section class="gallery-page">
+    <div class="container">
+      <div class="gallery-header" style="text-align: left; margin-bottom: 50px;">
+        <h1 style="font-family: var(--font-serif); font-size: 2.8rem; font-weight: 900; margin-bottom: 12px;">Tech</h1>
+        <p style="font-size: 1.15rem; color: var(--text-muted); max-width: 600px;">Deep dives into AI, web development, security, and software engineering.</p>
       </div>
+
+      <!-- MAIN CONTENT CONTAINER (MASONRY GRID) -->
+      <div class="masonry-grid-wrapper">
+        <div class="masonry-grid" id="masonryGrid">
+          
+    <article class="masonry-card" 
+             data-title="The Generative AI Copyright Battlefront"
+             data-excerpt="Major publications and artists are filing suits against tech giants. Here is a comprehensive breakdown of the key legal debates defining fair use in the age of neural networks."
+             data-author="Elena Rostova"
+             data-date="June 4, 2026"
+             data-readtime="6 min read"
+             data-category="AI"
+             data-image="https://picsum.photos/id/180/800/1200"
+             data-image-alt="Abstract technology brain visualization"
+             data-tags="AI,Copyright,Policy,Intellectual Property"
+             data-slug="generative-ai-copyright"
+             data-section="tech">
+      <img class="masonry-card__img" src="https://picsum.photos/id/180/800/1200" alt="Abstract technology brain visualization" loading="lazy" />
+      <div class="masonry-card-overlay">
+        <div class="card-overlay-top">
+          <span class="card-overlay-cat">AI</span>
+        </div>
+        <div class="card-overlay-bottom">
+          <div class="card-author-info">
+            <div class="card-author-avatar">E</div>
+            <span class="card-author-name">Elena Rostova</span>
+          </div>
+          <button class="card-action-btn" aria-label="Read Article">👁️</button>
+        </div>
+      </div>
+      <div class="card-content-block">
+        <h3 class="card-content-title">The Generative AI Copyright Battlefront</h3>
+        <p class="card-content-excerpt">Major publications and artists are filing suits against tech giants. Here is a comprehensive breakdown of the key legal debates defining fair use in the age of neural networks.</p>
+      </div>
+      <div class="hidden-article-body" style="display: none;">
+        <p>The boundary between human creativity and algorithmic synthesis has become the central battlefront of digital intellectual property. Over the last year, a series of high-profile lawsuits filed by authors, artists, and publishers against generative AI developers have moved from initial filings to critical preliminary rulings.</p>
+<p>At the core of the conflict lies a simple but profound question: <strong>Does training a machine learning model on copyrighted works constitute fair use?</strong></p>
+<h2>The Scraping Debate</h2>
+<p>Under current international copyright regimes, creators hold exclusive rights to reproduce, distribute, and create derivative works of their expressions. AI developers argue that training models is a transformative process that extracts patterns, styles, and semantic links rather than copying the expressions themselves.</p>
+<blockquote>
+<p>&quot;AI models do not store copies of training images or text; they learn concepts and parameters, much like a student studying a library of books.&quot;</p>
+</blockquote>
+<p>However, rights holders contend that this scraping is unauthorized reproduction at scale, built specifically to compete with the very creators whose works were harvested.</p>
+<h2>Transformative Use vs. Market Substitution</h2>
+<p>In copyright law, the defense of &quot;fair use&quot; relies on four factors:</p>
+<ol>
+<li>The purpose and character of the use.</li>
+<li>The nature of the copyrighted work.</li>
+<li>The amount and substantiality of the portion used.</li>
+<li>The effect of the use upon the potential market.</li>
+</ol>
+<p>While AI developers emphasize the <em>transformative</em> purpose of neural networks (first factor), publishers point to the <em>market effect</em> (fourth factor). When a model trained on copyright-protected investigative articles can summarize or mimic those stories instantly, it acts as a direct market substitute.</p>
+<h2>The Path Forward</h2>
+<p>To resolve these tensions, industry experts point toward three potential paths:</p>
+<ul>
+<li><strong>Opt-in Licensing Models:</strong> Similar to music streaming platforms, tech firms paying publishers for high-quality, vetted training datasets.</li>
+<li><strong>Collective Licensing Registries:</strong> Centralized clearinghouses that distribute royalties based on model usage metrics.</li>
+<li><strong>Technical Protections:</strong> Extended robots.txt standards and cryptographic signatures preventing scrapers from ingesting web content.</li>
+</ul>
+<p>As courts decide these landmark cases, the outcome will redefine the economic terms of the internet and shape the future of human authorship for decades to come.</p>
+
+      </div>
+    </article>
+  
+
+    <article class="masonry-card" 
+             data-title="Securing Digital Identity in the Web3 Era"
+             data-excerpt="How decentralized protocols and public-key cryptography are giving creators direct ownership of their online handles, assets, and digital reputation."
+             data-author="Marcus Chen"
+             data-date="June 2, 2026"
+             data-readtime="4 min read"
+             data-category="Security"
+             data-image="https://picsum.photos/id/1043/800/1000"
+             data-image-alt="Neon digital interface security lines"
+             data-tags="Security,Web Dev,Web3,Cryptography"
+             data-slug="securing-digital-identity"
+             data-section="tech">
+      <img class="masonry-card__img" src="https://picsum.photos/id/1043/800/1000" alt="Neon digital interface security lines" loading="lazy" />
+      <div class="masonry-card-overlay">
+        <div class="card-overlay-top">
+          <span class="card-overlay-cat">Security</span>
+        </div>
+        <div class="card-overlay-bottom">
+          <div class="card-author-info">
+            <div class="card-author-avatar">M</div>
+            <span class="card-author-name">Marcus Chen</span>
+          </div>
+          <button class="card-action-btn" aria-label="Read Article">👁️</button>
+        </div>
+      </div>
+      <div class="card-content-block">
+        <h3 class="card-content-title">Securing Digital Identity in the Web3 Era</h3>
+        <p class="card-content-excerpt">How decentralized protocols and public-key cryptography are giving creators direct ownership of their online handles, assets, and digital reputation.</p>
+      </div>
+      <div class="hidden-article-body" style="display: none;">
+        <p>In the early days of the web, identity was simple: a username and a password scoped to a single server. In the Web2 era, identity consolidated around major platforms—&quot;Log in with Google&quot; or &quot;Log in with Apple&quot; became ubiquitous, trading privacy and control for convenience. </p>
+<p>Today, a new paradigm is shifting power back to the edges: <strong>Self-Sovereign Identity (SSI) and decentralized name systems.</strong></p>
+<h2>The Vulnerability of Centralized Logins</h2>
+<p>When you rely on a platform wrapper for your digital identity, you exist as a tenant in their database. If the platform updates its terms, goes offline, or suspends your account, your entire digital footprint across dozens of integrated websites is severed instantly.</p>
+<p>Furthermore, centralized identity providers represent prime honeypots for malicious actors targeting database leaks and credential stuffing.</p>
+<h2>Cryptographic Ownership</h2>
+<p>Decentralized identity protocols replace platform-mediated logins with local cryptographic keypairs. When you authenticate:</p>
+<ol>
+<li>You present a public identifier (like a decentralized identifier, or DID).</li>
+<li>You prove ownership of that identifier by signing a challenge locally using your private key.</li>
+<li>The server validates the signature against a public blockchain or ledger ledger, without ever receiving or storing your credentials.</li>
+</ol>
+<blockquote>
+<p>&quot;Your digital key remains yours. No platform can delete it, revoke its permissions, or inspect its metadata without your consent.&quot;</p>
+</blockquote>
+<h2>Impact on Creators</h2>
+<p>For independent creators, this means their mailing lists, direct subscription keys, and verified handles are independent of any single platform database. If they decide to move their publications from one service to another, their subscribers and reputation transition seamlessly, secured by public-key cryptography.</p>
+<p>As these authentication standards gain native support in browsers, the digital landscape moves closer to an internet where users, not networks, own their identities.</p>
+
+      </div>
+    </article>
+  
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE ARTICLE DETAIL MODAL (LIGHTBOX) -->
+  <div class="article-modal-overlay" id="articleModalOverlay">
+    <div class="article-modal" id="articleModal">
+      <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
       
-      <div class="editorial-grid">
-        <p>No articles published yet.</p>
+      <!-- Modal Top Bar -->
+      <div class="modal-header">
+        <div class="modal-author-profile">
+          <div class="modal-author-avatar" id="modalAvatar">CN</div>
+          <div class="modal-author-meta">
+            <span class="modal-author-name" id="modalAuthor">Author Name</span>
+            <span class="modal-pub-date" id="modalDate">Publish Date</span>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button class="modal-action-btn" id="modalShareBtn">Copy Link</button>
+          <a href="#" class="modal-action-btn btn-highlight" id="modalViewPageBtn">Open Page</a>
+        </div>
       </div>
-    </section>
 
-  </main>
+      <!-- Modal Content Body -->
+      <div class="modal-body">
+        <div class="modal-hero-img-container">
+          <img src="" alt="" class="modal-hero-img" id="modalHeroImg">
+        </div>
+        <h1 class="modal-title" id="modalTitle">Article Title</h1>
+        <div class="modal-prose prose" id="modalProse">
+          <!-- Populated by JS -->
+        </div>
+        <div class="modal-tags-container">
+          <h4 class="modal-tags-title">Related Tags</h4>
+          <div class="modal-tags-list" id="modalTagsList">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
 
-  <!-- FOOTER -->
+    </div>
+  </div>
+
+  <!-- SITE FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <div>
+        <div class="footer-col">
           <div class="footer-logo">CopyrightNews</div>
           <p class="footer-desc">In-depth analysis at the intersection of intellectual property, technology, and digital content creation.</p>
         </div>
-        <div>
-          <h4 class="footer-heading">Sections</h4>
-          <ul class="footer-links">
+        <div class="footer-col">
+          <h4>Sections</h4>
+          <ul>
             <li><a href="/tech/">Technology</a></li>
             <li><a href="/blog/">Blog</a></li>
             <li><a href="/influencers/">Influencers</a></li>
+            <li><a href="/gallery/">Gallery</a></li>
           </ul>
         </div>
-        <div>
-          <h4 class="footer-heading">Company</h4>
-          <ul class="footer-links">
-            <li><a href="/about/">About Us</a></li>
-            <li><a href="/contact/">Contact</a></li>
-            <li><a href="/privacy/">Privacy Policy</a></li>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <ul>
+            <li><a href="https://github.com/Copyright-News" target="_blank">GitHub</a></li>
+            <li><a href="https://x.com/copyrightnews" target="_blank">Twitter / X</a></li>
+            <li><a href="https://instagram.com/copyrightnews" target="_blank">Instagram</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        &copy; 2026 Copyright News. All rights reserved.
+        <p>&copy; 2026 Copyright News. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+        </div>
       </div>
     </div>
   </footer>
 
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>

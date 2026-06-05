@@ -3,111 +3,161 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Copyright News | Tech, Policy & Creator Economy</title>
+  <title>Copyright News | Editorial Visual Feed</title>
+  <meta name="description" content="In-depth analysis at the intersection of intellectual property, technology, and digital content creation.">
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 
-  <!-- MASTHEAD -->
-  <header class="masthead">
-    <div class="container masthead-inner">
-      <div class="masthead-date">{{CURRENT_DATE}}</div>
-      <a href="/" class="logo">Copyright<span>News</span></a>
-      <div class="masthead-social">
-        <a href="#">Twitter</a>
-        <a href="#">RSS</a>
+  <!-- SITE NAVIGATION HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="site-logo">Copyright<span>News</span></a>
+      
+      <!-- Top Bar Search (Interactive) -->
+      <div class="header-search">
+        <input type="text" id="headerSearchInput" placeholder="Search copyright rules, licensing, tech articles...">
       </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="header-nav" id="headerNav">
+        <ul class="nav-links">
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="/tech/">Technology</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/influencers/">Influencers</a></li>
+          <li><a href="/gallery/">Gallery</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/admin/" class="btn-submit-story">Submit a Story</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <!-- NAVIGATION -->
-  <nav class="main-nav">
+  <!-- CATEGORY SCROLLBAR -->
+  <nav class="category-bar">
     <div class="container">
-      <ul class="nav-list">
-        <li><a href="/">Home</a></li>
-        <li><a href="/tech/">Technology</a></li>
-        <li><a href="/blog/">Blog</a></li>
-        <li><a href="/influencers/">Influencers</a></li>
-        <li><a href="/about/">About</a></li>
+      <ul class="category-list" id="categoryScroll">
+        <li><a href="#" class="active" data-category="all">All Editorial</a></li>
+        <li><a href="#" data-category="AI">AI</a></li>
+        <li><a href="#" data-category="Web Dev">Web Dev</a></li>
+        <li><a href="#" data-category="Security">Security</a></li>
+        <li><a href="#" data-category="Software">Software</a></li>
+        <li><a href="#" data-category="Policy">Policy</a></li>
+        <li><a href="#" data-category="Creator Economy">Creator Economy</a></li>
       </ul>
     </div>
   </nav>
 
+  <!-- ATMOSPHERIC UNSPLASH HERO BANNER -->
+  <section class="unsplash-hero" style="background-image: url('https://picsum.photos/id/48/1600/900');">
+    <div class="unsplash-hero-content">
+      <h1 class="unsplash-hero__title">Copyright News</h1>
+      <p class="unsplash-hero__desc">The internet’s source for visual stories and in-depth analysis on intellectual property, technology, and digital creator culture.</p>
+      
+      <!-- Main Hero Search Bar -->
+      <div class="hero-search-wrapper">
+        <input type="text" id="heroSearchInput" placeholder="Search free articles, laws, and creator stories...">
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT CONTAINER (MASONRY GRID) -->
   <main class="container">
-    
-    <!-- FRONT PAGE HERO -->
-    <section class="hero-grid">
-      {{HERO_ARTICLE}}
-      <div class="hero-sidebar">
-        {{SIDEBAR_ARTICLES}}
+    <div class="masonry-grid-wrapper">
+      <div class="masonry-grid" id="masonryGrid">
+        {{ALL_ARTICLES}}
       </div>
-    </section>
-
-    <!-- TECH SECTION -->
-    <section class="section-block">
-      <div class="section-header">
-        <h2 class="section-title">Technology & AI</h2>
-        <a href="/tech/" class="section-link">View All Tech →</a>
-      </div>
-      <div class="editorial-grid">
-        {{TECH_GRID}}
-      </div>
-    </section>
-
-    <!-- INFLUENCERS SECTION -->
-    <section class="section-block">
-      <div class="section-header">
-        <h2 class="section-title">The Creator Economy</h2>
-        <a href="/influencers/" class="section-link">View All Articles →</a>
-      </div>
-      <div class="editorial-grid">
-        {{INFLUENCER_GRID}}
-      </div>
-    </section>
-
-    <!-- BLOG SECTION -->
-    <section class="section-block">
-      <div class="section-header">
-        <h2 class="section-title">From the Blog</h2>
-        <a href="/blog/" class="section-link">Read More →</a>
-      </div>
-      <div class="editorial-grid">
-        {{BLOG_GRID}}
-      </div>
-    </section>
-
+    </div>
   </main>
 
-  <!-- FOOTER -->
+  <!-- INTERACTIVE ARTICLE DETAIL MODAL (LIGHTBOX) -->
+  <div class="article-modal-overlay" id="articleModalOverlay">
+    <div class="article-modal" id="articleModal">
+      <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+      
+      <!-- Modal Top Bar -->
+      <div class="modal-header">
+        <div class="modal-author-profile">
+          <div class="modal-author-avatar" id="modalAvatar">CN</div>
+          <div class="modal-author-meta">
+            <span class="modal-author-name" id="modalAuthor">Author Name</span>
+            <span class="modal-pub-date" id="modalDate">Publish Date</span>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button class="modal-action-btn" id="modalShareBtn">Copy Link</button>
+          <a href="#" class="modal-action-btn btn-highlight" id="modalViewPageBtn">Open Page</a>
+        </div>
+      </div>
+
+      <!-- Modal Content Body -->
+      <div class="modal-body">
+        <div class="modal-hero-img-container">
+          <img src="" alt="" class="modal-hero-img" id="modalHeroImg">
+        </div>
+        <h1 class="modal-title" id="modalTitle">Article Title</h1>
+        <div class="modal-prose prose" id="modalProse">
+          <!-- Populated by JS -->
+        </div>
+        <div class="modal-tags-container">
+          <h4 class="modal-tags-title">Related Tags</h4>
+          <div class="modal-tags-list" id="modalTagsList">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SITE FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <div>
+        <div class="footer-col">
           <div class="footer-logo">CopyrightNews</div>
           <p class="footer-desc">In-depth analysis at the intersection of intellectual property, technology, and digital content creation.</p>
         </div>
-        <div>
-          <h4 class="footer-heading">Sections</h4>
-          <ul class="footer-links">
+        <div class="footer-col">
+          <h4>Sections</h4>
+          <ul>
             <li><a href="/tech/">Technology</a></li>
             <li><a href="/blog/">Blog</a></li>
             <li><a href="/influencers/">Influencers</a></li>
+            <li><a href="/gallery/">Gallery</a></li>
           </ul>
         </div>
-        <div>
-          <h4 class="footer-heading">Company</h4>
-          <ul class="footer-links">
-            <li><a href="/about/">About Us</a></li>
-            <li><a href="/contact/">Contact</a></li>
-            <li><a href="/privacy/">Privacy Policy</a></li>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <ul>
+            <li><a href="https://github.com/Copyright-News" target="_blank">GitHub</a></li>
+            <li><a href="https://x.com/copyrightnews" target="_blank">Twitter / X</a></li>
+            <li><a href="https://instagram.com/copyrightnews" target="_blank">Instagram</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        &copy; 2026 Copyright News. All rights reserved.
+        <p>&copy; 2026 Copyright News. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+        </div>
       </div>
     </div>
   </footer>
 
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>

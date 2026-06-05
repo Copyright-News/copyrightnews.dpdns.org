@@ -3,111 +3,431 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Copyright News | Tech, Policy & Creator Economy</title>
+  <title>Copyright News | Editorial Visual Feed</title>
+  <meta name="description" content="In-depth analysis at the intersection of intellectual property, technology, and digital content creation.">
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 
-  <!-- MASTHEAD -->
-  <header class="masthead">
-    <div class="container masthead-inner">
-      <div class="masthead-date">Friday, June 5, 2026</div>
-      <a href="/" class="logo">Copyright<span>News</span></a>
-      <div class="masthead-social">
-        <a href="#">Twitter</a>
-        <a href="#">RSS</a>
+  <!-- SITE NAVIGATION HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="site-logo">Copyright<span>News</span></a>
+      
+      <!-- Top Bar Search (Interactive) -->
+      <div class="header-search">
+        <input type="text" id="headerSearchInput" placeholder="Search copyright rules, licensing, tech articles...">
       </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="header-nav" id="headerNav">
+        <ul class="nav-links">
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="/tech/">Technology</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/influencers/">Influencers</a></li>
+          <li><a href="/gallery/">Gallery</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/admin/" class="btn-submit-story">Submit a Story</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <!-- NAVIGATION -->
-  <nav class="main-nav">
+  <!-- CATEGORY SCROLLBAR -->
+  <nav class="category-bar">
     <div class="container">
-      <ul class="nav-list">
-        <li><a href="/">Home</a></li>
-        <li><a href="/tech/">Technology</a></li>
-        <li><a href="/blog/">Blog</a></li>
-        <li><a href="/influencers/">Influencers</a></li>
-        <li><a href="/about/">About</a></li>
+      <ul class="category-list" id="categoryScroll">
+        <li><a href="#" class="active" data-category="all">All Editorial</a></li>
+        <li><a href="#" data-category="AI">AI</a></li>
+        <li><a href="#" data-category="Web Dev">Web Dev</a></li>
+        <li><a href="#" data-category="Security">Security</a></li>
+        <li><a href="#" data-category="Software">Software</a></li>
+        <li><a href="#" data-category="Policy">Policy</a></li>
+        <li><a href="#" data-category="Creator Economy">Creator Economy</a></li>
       </ul>
     </div>
   </nav>
 
+  <!-- ATMOSPHERIC UNSPLASH HERO BANNER -->
+  <section class="unsplash-hero" style="background-image: url('https://picsum.photos/id/48/1600/900');">
+    <div class="unsplash-hero-content">
+      <h1 class="unsplash-hero__title">Copyright News</h1>
+      <p class="unsplash-hero__desc">The internet’s source for visual stories and in-depth analysis on intellectual property, technology, and digital creator culture.</p>
+      
+      <!-- Main Hero Search Bar -->
+      <div class="hero-search-wrapper">
+        <input type="text" id="heroSearchInput" placeholder="Search free articles, laws, and creator stories...">
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT CONTAINER (MASONRY GRID) -->
   <main class="container">
-    
-    <!-- FRONT PAGE HERO -->
-    <section class="hero-grid">
-      <p>No articles yet.</p>
-      <div class="hero-sidebar">
-        <p>No other articles yet.</p>
+    <div class="masonry-grid-wrapper">
+      <div class="masonry-grid" id="masonryGrid">
+        
+    <article class="masonry-card" 
+             data-title="The Creator Economy: Moving Beyond Platform Subsidies"
+             data-excerpt="Algorithms change and ad-rates fluctuate. Creators are shifting to direct-to-audience models, launching newsletters, merchandise, and independent communities."
+             data-author="Sarah Jenkins"
+             data-date="June 5, 2026"
+             data-readtime="5 min read"
+             data-category="Creator Economy"
+             data-image="https://picsum.photos/id/338/800/1100"
+             data-image-alt="Content creator desk setup"
+             data-tags="Creator Economy,Monetization,Blog,Social Media"
+             data-slug="creator-economy-monetization"
+             data-section="blog">
+      <img class="masonry-card__img" src="https://picsum.photos/id/338/800/1100" alt="Content creator desk setup" loading="lazy" />
+      <div class="masonry-card-overlay">
+        <div class="card-overlay-top">
+          <span class="card-overlay-cat">Creator Economy</span>
+        </div>
+        <div class="card-overlay-bottom">
+          <div class="card-author-info">
+            <div class="card-author-avatar">S</div>
+            <span class="card-author-name">Sarah Jenkins</span>
+          </div>
+          <button class="card-action-btn" aria-label="Read Article">👁️</button>
+        </div>
       </div>
-    </section>
+      <div class="card-content-block">
+        <h3 class="card-content-title">The Creator Economy: Moving Beyond Platform Subsidies</h3>
+        <p class="card-content-excerpt">Algorithms change and ad-rates fluctuate. Creators are shifting to direct-to-audience models, launching newsletters, merchandise, and independent communities.</p>
+      </div>
+      <div class="hidden-article-body" style="display: none;">
+        <p>For years, content creators operated on a simple playbook: build a massive following on a social network and wait for the platform&#39;s ad-revenue split or creator fund payout. But as platforms adjust recommendation feeds, trim creator payouts, and raise transaction fees, that playbook is failing.</p>
+<p>The modern creator economy is undergoing a massive shift: <strong>the transition from platform dependence to direct-to-audience ownership.</strong></p>
+<h2>The Platform Trap</h2>
+<p>Platform funds and ad splits are volatile. A minor adjustment to a recommendation algorithm can drop a creator&#39;s impressions by 70% overnight, decimating their income. This precarity has led to widespread creator burnout.</p>
+<blockquote>
+<p>&quot;Relying solely on platform monetization is like building a house on rented land. You have no control over the rent, the layout, or whether you can stay.&quot;</p>
+</blockquote>
+<h2>Direct-to-Audience Channels</h2>
+<p>To hedge against algorithmic volatility, creators are building independent ecosystems:</p>
+<ul>
+<li><strong>Substack &amp; Ghost:</strong> Transitioning visual feed followings into high-value email lists they own.</li>
+<li><strong>Custom Communities:</strong> Utilizing platforms like Discord or Circle to charge subscriptions for exclusive discussion forums.</li>
+<li><strong>Independent Merchandising:</strong> Designing and shipping products directly to fans, bypassing platform marketplaces.</li>
+</ul>
+<h2>The 1,000 True Fans Rule</h2>
+<p>Kevin Kelly’s classic thesis has never been more relevant. A creator doesn&#39;t need millions of passive followers to build a sustainable career. Instead, finding a core group of 1,000 &quot;true fans&quot; who are willing to pay $100 per year for direct access yields a stable, independent livelihood.</p>
+<p>By establishing direct payment and communication lines, creators are insulating themselves from platform whims and reclaiming control of their intellectual products.</p>
 
-    <!-- TECH SECTION -->
-    <section class="section-block">
-      <div class="section-header">
-        <h2 class="section-title">Technology & AI</h2>
-        <a href="/tech/" class="section-link">View All Tech →</a>
       </div>
-      <div class="editorial-grid">
-        <p>No articles published yet.</p>
-      </div>
-    </section>
+    </article>
+  
 
-    <!-- INFLUENCERS SECTION -->
-    <section class="section-block">
-      <div class="section-header">
-        <h2 class="section-title">The Creator Economy</h2>
-        <a href="/influencers/" class="section-link">View All Articles →</a>
+    <article class="masonry-card" 
+             data-title="The Generative AI Copyright Battlefront"
+             data-excerpt="Major publications and artists are filing suits against tech giants. Here is a comprehensive breakdown of the key legal debates defining fair use in the age of neural networks."
+             data-author="Elena Rostova"
+             data-date="June 4, 2026"
+             data-readtime="6 min read"
+             data-category="AI"
+             data-image="https://picsum.photos/id/180/800/1200"
+             data-image-alt="Abstract technology brain visualization"
+             data-tags="AI,Copyright,Policy,Intellectual Property"
+             data-slug="generative-ai-copyright"
+             data-section="tech">
+      <img class="masonry-card__img" src="https://picsum.photos/id/180/800/1200" alt="Abstract technology brain visualization" loading="lazy" />
+      <div class="masonry-card-overlay">
+        <div class="card-overlay-top">
+          <span class="card-overlay-cat">AI</span>
+        </div>
+        <div class="card-overlay-bottom">
+          <div class="card-author-info">
+            <div class="card-author-avatar">E</div>
+            <span class="card-author-name">Elena Rostova</span>
+          </div>
+          <button class="card-action-btn" aria-label="Read Article">👁️</button>
+        </div>
       </div>
-      <div class="editorial-grid">
-        <p>No articles published yet.</p>
+      <div class="card-content-block">
+        <h3 class="card-content-title">The Generative AI Copyright Battlefront</h3>
+        <p class="card-content-excerpt">Major publications and artists are filing suits against tech giants. Here is a comprehensive breakdown of the key legal debates defining fair use in the age of neural networks.</p>
       </div>
-    </section>
+      <div class="hidden-article-body" style="display: none;">
+        <p>The boundary between human creativity and algorithmic synthesis has become the central battlefront of digital intellectual property. Over the last year, a series of high-profile lawsuits filed by authors, artists, and publishers against generative AI developers have moved from initial filings to critical preliminary rulings.</p>
+<p>At the core of the conflict lies a simple but profound question: <strong>Does training a machine learning model on copyrighted works constitute fair use?</strong></p>
+<h2>The Scraping Debate</h2>
+<p>Under current international copyright regimes, creators hold exclusive rights to reproduce, distribute, and create derivative works of their expressions. AI developers argue that training models is a transformative process that extracts patterns, styles, and semantic links rather than copying the expressions themselves.</p>
+<blockquote>
+<p>&quot;AI models do not store copies of training images or text; they learn concepts and parameters, much like a student studying a library of books.&quot;</p>
+</blockquote>
+<p>However, rights holders contend that this scraping is unauthorized reproduction at scale, built specifically to compete with the very creators whose works were harvested.</p>
+<h2>Transformative Use vs. Market Substitution</h2>
+<p>In copyright law, the defense of &quot;fair use&quot; relies on four factors:</p>
+<ol>
+<li>The purpose and character of the use.</li>
+<li>The nature of the copyrighted work.</li>
+<li>The amount and substantiality of the portion used.</li>
+<li>The effect of the use upon the potential market.</li>
+</ol>
+<p>While AI developers emphasize the <em>transformative</em> purpose of neural networks (first factor), publishers point to the <em>market effect</em> (fourth factor). When a model trained on copyright-protected investigative articles can summarize or mimic those stories instantly, it acts as a direct market substitute.</p>
+<h2>The Path Forward</h2>
+<p>To resolve these tensions, industry experts point toward three potential paths:</p>
+<ul>
+<li><strong>Opt-in Licensing Models:</strong> Similar to music streaming platforms, tech firms paying publishers for high-quality, vetted training datasets.</li>
+<li><strong>Collective Licensing Registries:</strong> Centralized clearinghouses that distribute royalties based on model usage metrics.</li>
+<li><strong>Technical Protections:</strong> Extended robots.txt standards and cryptographic signatures preventing scrapers from ingesting web content.</li>
+</ul>
+<p>As courts decide these landmark cases, the outcome will redefine the economic terms of the internet and shape the future of human authorship for decades to come.</p>
 
-    <!-- BLOG SECTION -->
-    <section class="section-block">
-      <div class="section-header">
-        <h2 class="section-title">From the Blog</h2>
-        <a href="/blog/" class="section-link">Read More →</a>
       </div>
-      <div class="editorial-grid">
-        <p>No articles published yet.</p>
-      </div>
-    </section>
+    </article>
+  
 
+    <article class="masonry-card" 
+             data-title="Platform Algorithm Shift Impacts Creator Monetization"
+             data-excerpt="Major video hosting platforms have quietly updated their monetization formulas. Creators are seeing pay rates drop for short-form clips while long-form content is getting a massive algorithmic push."
+             data-author="Sarah Jenkins"
+             data-date="June 3, 2026"
+             data-readtime="5 min read"
+             data-category="Creator Economy"
+             data-image="https://picsum.photos/id/296/800/1200"
+             data-image-alt="Camera filming a video creator"
+             data-tags="Influencers,Monetization,Creator Economy,Policy"
+             data-slug="platform-monetization-changes"
+             data-section="influencers">
+      <img class="masonry-card__img" src="https://picsum.photos/id/296/800/1200" alt="Camera filming a video creator" loading="lazy" />
+      <div class="masonry-card-overlay">
+        <div class="card-overlay-top">
+          <span class="card-overlay-cat">Creator Economy</span>
+        </div>
+        <div class="card-overlay-bottom">
+          <div class="card-author-info">
+            <div class="card-author-avatar">S</div>
+            <span class="card-author-name">Sarah Jenkins</span>
+          </div>
+          <button class="card-action-btn" aria-label="Read Article">👁️</button>
+        </div>
+      </div>
+      <div class="card-content-block">
+        <h3 class="card-content-title">Platform Algorithm Shift Impacts Creator Monetization</h3>
+        <p class="card-content-excerpt">Major video hosting platforms have quietly updated their monetization formulas. Creators are seeing pay rates drop for short-form clips while long-form content is getting a massive algorithmic push.</p>
+      </div>
+      <div class="hidden-article-body" style="display: none;">
+        <p>In the hyper-competitive world of video platforms, algorithmic updates are a constant reality. But the latest adjustments to distribution weights and ad splits have caught many top creators off guard. </p>
+<p>Quietly rolled out last week, the updates mark a decisive strategic pivot: <strong>a scaling back of short-form video incentives in favor of rewarding deep, high-retention long-form content.</strong></p>
+<h2>The Short-Form Decline</h2>
+<p>For the past three years, platforms waged a fierce war for viewer attention, subsidizing short-form vertical feeds with massive creator funds and high exposure splits. However, platforms are realizing that short-form clips are difficult to monetize effectively with standard mid-roll and pre-roll advertisements.</p>
+<p>As a result, the effective CPM (cost per mille) for vertical clips under 60 seconds has dropped by as much as 45% for some creators.</p>
+<blockquote>
+<p>&quot;We built our entire studio around posting three short-form videos a day. Now, our revenue has collapsed, and we are forced to re-evaluate our production model entirely.&quot;</p>
+</blockquote>
+<h2>The Long-Form Resurgence</h2>
+<p>In contrast, video essays and documentaries longer than 15 minutes are seeing a massive algorithmic lift in recommendation feeds. Platforms are optimizing for <strong>total viewing hours</strong> rather than views count, as longer watch times allow for multiple ad placements and higher subscriber conversion rates.</p>
+<p>Furthermore, platforms are introducing premium ad-sharing tiers specifically for channels that maintain average retention rates above 50% on videos longer than 10 minutes.</p>
+<h2>Adaptation Strategies</h2>
+<p>For creators and agency networks, survival requires rapid adaptation:</p>
+<ul>
+<li><strong>Repurposing Shorts as Funnels:</strong> Using short vertical clips strictly as marketing teasers to drive traffic to longer, owned-site content rather than relying on them for revenue.</li>
+<li><strong>Investing in Depth:</strong> Shifting resources from daily low-effort clips to weekly or bi-weekly deep dives that command higher engagement.</li>
+<li><strong>Direct Sponsors:</strong> Emphasizing brand integrations baked directly into the video file, which are immune to platform ad-rate shifts.</li>
+</ul>
+<p>This shift underscores the fundamental rule of creator economy survival: platforms prioritize their own bottom line, and diversification is a creator&#39;s only true protection.</p>
+
+      </div>
+    </article>
+  
+
+    <article class="masonry-card" 
+             data-title="Securing Digital Identity in the Web3 Era"
+             data-excerpt="How decentralized protocols and public-key cryptography are giving creators direct ownership of their online handles, assets, and digital reputation."
+             data-author="Marcus Chen"
+             data-date="June 2, 2026"
+             data-readtime="4 min read"
+             data-category="Security"
+             data-image="https://picsum.photos/id/1043/800/1000"
+             data-image-alt="Neon digital interface security lines"
+             data-tags="Security,Web Dev,Web3,Cryptography"
+             data-slug="securing-digital-identity"
+             data-section="tech">
+      <img class="masonry-card__img" src="https://picsum.photos/id/1043/800/1000" alt="Neon digital interface security lines" loading="lazy" />
+      <div class="masonry-card-overlay">
+        <div class="card-overlay-top">
+          <span class="card-overlay-cat">Security</span>
+        </div>
+        <div class="card-overlay-bottom">
+          <div class="card-author-info">
+            <div class="card-author-avatar">M</div>
+            <span class="card-author-name">Marcus Chen</span>
+          </div>
+          <button class="card-action-btn" aria-label="Read Article">👁️</button>
+        </div>
+      </div>
+      <div class="card-content-block">
+        <h3 class="card-content-title">Securing Digital Identity in the Web3 Era</h3>
+        <p class="card-content-excerpt">How decentralized protocols and public-key cryptography are giving creators direct ownership of their online handles, assets, and digital reputation.</p>
+      </div>
+      <div class="hidden-article-body" style="display: none;">
+        <p>In the early days of the web, identity was simple: a username and a password scoped to a single server. In the Web2 era, identity consolidated around major platforms—&quot;Log in with Google&quot; or &quot;Log in with Apple&quot; became ubiquitous, trading privacy and control for convenience. </p>
+<p>Today, a new paradigm is shifting power back to the edges: <strong>Self-Sovereign Identity (SSI) and decentralized name systems.</strong></p>
+<h2>The Vulnerability of Centralized Logins</h2>
+<p>When you rely on a platform wrapper for your digital identity, you exist as a tenant in their database. If the platform updates its terms, goes offline, or suspends your account, your entire digital footprint across dozens of integrated websites is severed instantly.</p>
+<p>Furthermore, centralized identity providers represent prime honeypots for malicious actors targeting database leaks and credential stuffing.</p>
+<h2>Cryptographic Ownership</h2>
+<p>Decentralized identity protocols replace platform-mediated logins with local cryptographic keypairs. When you authenticate:</p>
+<ol>
+<li>You present a public identifier (like a decentralized identifier, or DID).</li>
+<li>You prove ownership of that identifier by signing a challenge locally using your private key.</li>
+<li>The server validates the signature against a public blockchain or ledger ledger, without ever receiving or storing your credentials.</li>
+</ol>
+<blockquote>
+<p>&quot;Your digital key remains yours. No platform can delete it, revoke its permissions, or inspect its metadata without your consent.&quot;</p>
+</blockquote>
+<h2>Impact on Creators</h2>
+<p>For independent creators, this means their mailing lists, direct subscription keys, and verified handles are independent of any single platform database. If they decide to move their publications from one service to another, their subscribers and reputation transition seamlessly, secured by public-key cryptography.</p>
+<p>As these authentication standards gain native support in browsers, the digital landscape moves closer to an internet where users, not networks, own their identities.</p>
+
+      </div>
+    </article>
+  
+
+    <article class="masonry-card" 
+             data-title="Rethinking the Licenses: The Future of Open Source"
+             data-excerpt="As commercial software models exploit open codebase distributions, a new wave of &#39;fair share&#39; licenses is testing the traditional boundaries of free software."
+             data-author="Linus Lindqvist"
+             data-date="May 28, 2026"
+             data-readtime="7 min read"
+             data-category="Software"
+             data-image="https://picsum.photos/id/60/800/900"
+             data-image-alt="Abstract green code lines"
+             data-tags="Software,Policy,Open Source,Licensing"
+             data-slug="future-of-open-source"
+             data-section="blog">
+      <img class="masonry-card__img" src="https://picsum.photos/id/60/800/900" alt="Abstract green code lines" loading="lazy" />
+      <div class="masonry-card-overlay">
+        <div class="card-overlay-top">
+          <span class="card-overlay-cat">Software</span>
+        </div>
+        <div class="card-overlay-bottom">
+          <div class="card-author-info">
+            <div class="card-author-avatar">L</div>
+            <span class="card-author-name">Linus Lindqvist</span>
+          </div>
+          <button class="card-action-btn" aria-label="Read Article">👁️</button>
+        </div>
+      </div>
+      <div class="card-content-block">
+        <h3 class="card-content-title">Rethinking the Licenses: The Future of Open Source</h3>
+        <p class="card-content-excerpt">As commercial software models exploit open codebase distributions, a new wave of 'fair share' licenses is testing the traditional boundaries of free software.</p>
+      </div>
+      <div class="hidden-article-body" style="display: none;">
+        <p>Open-source software has built the modern web. From databases like Redis and PostgreSQL to languages like Python and JavaScript, open collaboration has accelerated innovation. But as cloud giants monetize these open-source tools without contributing back, developers are hitting back with licensing changes.</p>
+<p>The definition of &quot;open&quot; is being re-evaluated: <strong>can a license protect developers&#39; labor while maintaining collaborative freedom?</strong></p>
+<h2>The Commercial Exploitation Dilemma</h2>
+<p>When a database developer releases code under a permissive license (like MIT or BSD), cloud hosting providers can package, host, and sell that code as a service at scale. The hosting provider captures the economic value, while the original creator bears the cost of maintenance and support.</p>
+<blockquote>
+<p>&quot;We wrote the software, we maintain the software, but someone else is collecting millions of dollars in hosted revenue from our work without giving anything back.&quot;</p>
+</blockquote>
+<h2>The Rise of Fair-Share Licenses</h2>
+<p>To combat this, several high-profile projects have moved from traditional OSI-approved licenses to alternative sources-available licensing schemes:</p>
+<ul>
+<li><strong>Server Side Public License (SSPL):</strong> Pioneered by MongoDB, requiring anyone offering the database as a hosted service to open-source their entire management stack.</li>
+<li><strong>Business Source License (BSL):</strong> Used by MariaDB, HashiCorp, and Redis. It keeps code open for non-production use but restricts commercial hosting, converting to a standard open-source license after a set period (usually 3-4 years).</li>
+</ul>
+<h2>The Open-Source Ideology Divide</h2>
+<p>These license migrations have sparked intense debates. The Open Source Initiative (OSI) does not recognize these licenses as &quot;open source&quot; because they restrict usage criteria (such as commercial deployment fields).</p>
+<p>Critics argue that source-available licenses fragment the developer ecosystem and make dependency management more complicated. Proponents counter that without these protections, independent software development will become financially unsustainable.</p>
+<p>Ultimately, finding a sustainable balance between commercial viability and open sharing will determine whether the next generation of infrastructure code is written in public or behind closed proprietary doors.</p>
+
+      </div>
+    </article>
+  
+      </div>
+    </div>
   </main>
 
-  <!-- FOOTER -->
+  <!-- INTERACTIVE ARTICLE DETAIL MODAL (LIGHTBOX) -->
+  <div class="article-modal-overlay" id="articleModalOverlay">
+    <div class="article-modal" id="articleModal">
+      <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+      
+      <!-- Modal Top Bar -->
+      <div class="modal-header">
+        <div class="modal-author-profile">
+          <div class="modal-author-avatar" id="modalAvatar">CN</div>
+          <div class="modal-author-meta">
+            <span class="modal-author-name" id="modalAuthor">Author Name</span>
+            <span class="modal-pub-date" id="modalDate">Publish Date</span>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button class="modal-action-btn" id="modalShareBtn">Copy Link</button>
+          <a href="#" class="modal-action-btn btn-highlight" id="modalViewPageBtn">Open Page</a>
+        </div>
+      </div>
+
+      <!-- Modal Content Body -->
+      <div class="modal-body">
+        <div class="modal-hero-img-container">
+          <img src="" alt="" class="modal-hero-img" id="modalHeroImg">
+        </div>
+        <h1 class="modal-title" id="modalTitle">Article Title</h1>
+        <div class="modal-prose prose" id="modalProse">
+          <!-- Populated by JS -->
+        </div>
+        <div class="modal-tags-container">
+          <h4 class="modal-tags-title">Related Tags</h4>
+          <div class="modal-tags-list" id="modalTagsList">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SITE FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <div>
+        <div class="footer-col">
           <div class="footer-logo">CopyrightNews</div>
           <p class="footer-desc">In-depth analysis at the intersection of intellectual property, technology, and digital content creation.</p>
         </div>
-        <div>
-          <h4 class="footer-heading">Sections</h4>
-          <ul class="footer-links">
+        <div class="footer-col">
+          <h4>Sections</h4>
+          <ul>
             <li><a href="/tech/">Technology</a></li>
             <li><a href="/blog/">Blog</a></li>
             <li><a href="/influencers/">Influencers</a></li>
+            <li><a href="/gallery/">Gallery</a></li>
           </ul>
         </div>
-        <div>
-          <h4 class="footer-heading">Company</h4>
-          <ul class="footer-links">
-            <li><a href="/about/">About Us</a></li>
-            <li><a href="/contact/">Contact</a></li>
-            <li><a href="/privacy/">Privacy Policy</a></li>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <ul>
+            <li><a href="https://github.com/Copyright-News" target="_blank">GitHub</a></li>
+            <li><a href="https://x.com/copyrightnews" target="_blank">Twitter / X</a></li>
+            <li><a href="https://instagram.com/copyrightnews" target="_blank">Instagram</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        &copy; 2026 Copyright News. All rights reserved.
+        <p>&copy; 2026 Copyright News. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+        </div>
       </div>
     </div>
   </footer>
 
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>
