@@ -64,10 +64,13 @@
           statusEl.className = 'form-status success';
           statusEl.textContent = 'Success! Your submission has been received and is pending editorial review.';
           form.reset();
-        } else { throw new Error('Server error'); }
+        } else {
+          const errData = await res.json().catch(() => ({}));
+          throw new Error(errData.error || `Server error (Status ${res.status})`);
+        }
       } catch (err) {
         statusEl.className = 'form-status error';
-        statusEl.textContent = 'Something went wrong. Please email us directly at admin@copyrightnews.dpdns.org.';
+        statusEl.textContent = `System Error: ${err.message}. Please email admin@copyrightnews.dpdns.org.`;
       } finally { btn.disabled = false; btn.textContent = 'Submit for Editorial Review'; }
     });
   </script>
