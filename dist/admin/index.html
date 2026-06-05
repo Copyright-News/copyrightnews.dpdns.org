@@ -4,11 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard | Copyright News</title>
+  <link rel="icon" href="/assets/images/favicon.ico">
+  
+  <!-- === CUSTOM ADMIN UI THEME === -->
+  <style>
+    /* 1. Brand Variables & Global Overrides */
+    body {
+      --brand-primary: #1e40af; /* Copyright News Blue */
+      --brand-accent: #7c3aed;  /* Purple Highlight */
+      --bg-sidebar: #f8fafc;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    }
+
+    /* 2. Custom Scrollbars & Selection Colors */
+    ::selection { background: var(--brand-primary); color: white; }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--brand-primary); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--brand-accent); }
+
+    /* 3. Force Brand Colors on CMS Buttons & Links */
+    button[class*="primary"], [class*="PrimaryButton"], [class*="SaveButton"], a[class*="primary"] {
+      background-color: var(--brand-primary) !important;
+      border-color: var(--brand-primary) !important;
+      color: white !important;
+      transition: all 0.2s ease !important;
+    }
+    
+    button[class*="primary"]:hover, [class*="PrimaryButton"]:hover {
+      background-color: #1e3a8a !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px rgba(30, 64, 175, 0.2) !important;
+    }
+
+    /* 4. Sidebar & Navigation Tweaks */
+    nav[class*="Sidebar"], [class*="sidebar"], [class*="Nav"] {
+      background-color: var(--bg-sidebar) !important;
+      border-right: 1px solid #e2e8f0 !important;
+    }
+
+    /* 5. Login Screen Branding */
+    [class*="Login"], [class*="login"] {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+    }
+  </style>
 </head>
 <body>
   <script>window.CMS_MANUAL_INIT = true;</script>
   <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
   <script>
+  // --- STANDARD ARTICLE FIELDS ---
   const articleFields = [
     { name: "title", label: "Title", widget: "string", required: true },
     { name: "category", label: "Category", widget: "select", options: ["AI", "Web Dev", "Security", "Hardware", "Software", "Policy", "Creator Economy", "Breaking News", "Opinion"], default: "Web Dev", required: true },
@@ -22,20 +67,33 @@
     { name: "body", label: "Article Content", widget: "markdown", modes: ["rich_text", "raw"], required: true }
   ];
 
+  // --- INITIALIZE CMS WITH BRANDING ---
   CMS.init({
     config: {
       load_config_file: false,
+      
+      // ✅ OFFICIAL BRANDING CONFIG
+      logo: {
+        src: "/assets/images/admin-logo.png",
+        alt: "Copyright News Admin"
+      },
+
       backend: { name: "github", repo: "Copyright-News/copyrightnews.dpdns.org", branch: "master" },
       media_folder: "assets/images",
       public_folder: "/assets/images",
       slug: { encoding: "ascii", clean_accents: true, sanitize_replacement: "-" },
+      
       collections: [
-        // 1. ARTICLES
+        // ==========================================
+        // 📰 GROUP 1: EDITORIAL (Articles)
+        // ==========================================
         { name: "tech", label: "📰 Tech Articles", folder: "content/tech", create: true, slug: "{{slug}}", sortable_fields: ["date", "title"], fields: articleFields },
         { name: "blog", label: "📝 Blog Posts", folder: "content/blog", create: true, slug: "{{slug}}", sortable_fields: ["date", "title"], fields: articleFields },
         { name: "influencers", label: "🌟 Influencers", folder: "content/influencers", create: true, slug: "{{slug}}", sortable_fields: ["date", "title"], fields: articleFields },
 
-        // 2. FULL ACCESS STATIC PAGES
+        // ==========================================
+        // 📄 GROUP 2: STATIC PAGES (Full Access)
+        // ==========================================
         {
           name: "pages",
           label: "📄 Static Pages",
@@ -46,26 +104,20 @@
               file: "content/settings/about.json",
               fields: [
                 { label: "Page Title", name: "title", widget: "string", default: "About Copyright News" },
-                { label: "Hero Subtitle", name: "subtitle", widget: "text", default: "Independent digital publication covering the intersection of technology, culture, and creativity." },
-                { label: "Mission Title", name: "mission_title", widget: "string", default: "Our Mission" },
+                { label: "Hero Subtitle", name: "subtitle", widget: "text" },
+                { label: "Mission Title", name: "mission_title", widget: "string" },
                 { label: "Mission Text", name: "mission_text", widget: "markdown" },
-                { label: "Story Title", name: "story_title", widget: "string", default: "Our Story" },
+                { label: "Story Title", name: "story_title", widget: "string" },
                 { label: "Story Text", name: "story_text", widget: "markdown" },
-                {
-                  label: "Team Members", name: "team", widget: "list",
-                  fields: [
-                    { label: "Name", name: "name", widget: "string" },
-                    { label: "Role", name: "role", widget: "string" },
-                    { label: "Photo", name: "image", widget: "image" }
-                  ]
-                },
-                {
-                  label: "Core Values", name: "values", widget: "list",
-                  fields: [
-                    { label: "Value Title", name: "title", widget: "string" },
-                    { label: "Description", name: "text", widget: "text" }
-                  ]
-                }
+                { label: "Team Members", name: "team", widget: "list", fields: [
+                  { label: "Name", name: "name", widget: "string" },
+                  { label: "Role", name: "role", widget: "string" },
+                  { label: "Photo", name: "image", widget: "image" }
+                ]},
+                { label: "Core Values", name: "values", widget: "list", fields: [
+                  { label: "Value Title", name: "title", widget: "string" },
+                  { label: "Description", name: "text", widget: "text" }
+                ]}
               ]
             },
             {
@@ -74,22 +126,22 @@
               file: "content/settings/gallery.json",
               fields: [
                 { label: "Page Title", name: "title", widget: "string", default: "Gallery" },
-                { label: "Subtitle", name: "subtitle", widget: "string", default: "Moments captured — events, portraits, and stories in pictures" },
-                {
-                  label: "Photos", name: "photos", widget: "list",
-                  fields: [
-                    { label: "Image", name: "image", widget: "image" },
-                    { label: "Caption (Optional)", name: "caption", widget: "string", required: false }
-                  ]
-                }
+                { label: "Subtitle", name: "subtitle", widget: "string" },
+                { label: "Photos", name: "photos", widget: "list", fields: [
+                  { label: "Image", name: "image", widget: "image" },
+                  { label: "Caption", name: "caption", widget: "string", required: false }
+                ]}
               ]
             }
           ]
         },
         
-        // 3. GLOBAL SITE SETTINGS
+        // ==========================================
+        // ⚙️ GROUP 3: GLOBAL SETTINGS
+        // ==========================================
         {
-          name: "settings", label: "⚙️ Site Settings",
+          name: "settings", 
+          label: "⚙️ Site Settings",
           files: [
             {
               label: "Homepage & Branding",
@@ -104,20 +156,16 @@
               ]
             },
             {
-              label: "Navigation Menu",
-              name: "nav_menu",
+              label: "Navigation Menu", 
+              name: "nav_menu", 
               file: "content/settings/navigation.json",
-              fields: [
-                {
-                  label: "Menu Links",
-                  name: "links",
-                  widget: "list",
-                  fields: [
-                    { label: "Link Text", name: "text", widget: "string" },
-                    { label: "URL", name: "url", widget: "string" }
-                  ]
-                }
-              ]
+              fields: [{ 
+                label: "Menu Links", name: "links", widget: "list", 
+                fields: [
+                  { label: "Link Text", name: "text", widget: "string" }, 
+                  { label: "URL", name: "url", widget: "string" }
+                ] 
+              }]
             }
           ]
         }
