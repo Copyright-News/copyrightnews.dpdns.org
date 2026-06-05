@@ -1,0 +1,10 @@
+{
+  "links": [
+    { "text": "Home", "url": "/" },
+    { "text": "Technology", "url": "/tech/" },
+    { "text": "Blog", "url": "/blog/" },
+    { "text": "Influencers", "url": "/influencers/" },
+    { "text": "Gallery", "url": "/gallery/" },
+    { "text": "About", "url": "/about.html" }
+  ]
+}

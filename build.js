@@ -24,6 +24,81 @@ const SECTION_META = {
   influencers: { label: 'Influencers', description: 'Creator economy trends, platform policy changes, and monetization strategies.' },
 };
 
+// --- LOAD CUSTOM SETTINGS (CMS Configured) ---
+const SETTINGS_DIR = path.join(CONTENT_DIR, 'settings');
+
+let siteConfig = {
+  title: "Copyright News",
+  tagline: "Policy • Tech • Creators",
+  hero_title: "Copyright News",
+  hero_desc: "The internet’s source for visual stories and in-depth analysis on intellectual property, technology, and digital creator culture.",
+  footer_text: "© 2026 Copyright News. All rights reserved."
+};
+
+let navConfig = {
+  links: [
+    { text: "Home", url: "/" },
+    { text: "Technology", url: "/tech/" },
+    { text: "Blog", url: "/blog/" },
+    { text: "Influencers", url: "/influencers/" },
+    { text: "Gallery", url: "/gallery/" },
+    { text: "About", url: "/about.html" }
+  ]
+};
+
+const siteConfigPath = path.join(SETTINGS_DIR, 'site.json');
+if (fs.existsSync(siteConfigPath)) {
+  try {
+    siteConfig = JSON.parse(fs.readFileSync(siteConfigPath, 'utf-8'));
+    console.log('✓ Loaded custom site settings from content/settings/site.json');
+  } catch (e) {
+    console.warn('⚠ Failed to parse site.json, using defaults:', e.message);
+  }
+}
+
+const navConfigPath = path.join(SETTINGS_DIR, 'navigation.json');
+if (fs.existsSync(navConfigPath)) {
+  try {
+    navConfig = JSON.parse(fs.readFileSync(navConfigPath, 'utf-8'));
+    console.log('✓ Loaded custom navigation settings from content/settings/navigation.json');
+  } catch (e) {
+    console.warn('⚠ Failed to parse navigation.json, using defaults:', e.message);
+  }
+}
+
+// Helper: Formats logo with red span on the last word
+function buildLogoHtml(title) {
+  if (!title) return '';
+  const words = title.trim().split(/\s+/);
+  if (words.length <= 1) return title;
+  const lastWord = words.pop();
+  return `${words.join(' ')}<span>${lastWord}</span>`;
+}
+
+// Helper: Formats active navigation links based on current path
+function buildNavLinks(currentUrl) {
+  if (!navConfig.links || !Array.isArray(navConfig.links)) return '';
+  return navConfig.links.map(link => {
+    let isActive = false;
+    if (link.url === '/') {
+      isActive = currentUrl === '/' || currentUrl === '/index.html';
+    } else {
+      isActive = currentUrl.startsWith(link.url);
+    }
+    const activeClass = isActive ? ' class="active"' : '';
+    return `<li><a href="${link.url}"${activeClass}>${link.text}</a></li>`;
+  }).join('\n');
+}
+
+const siteVars = {
+  SITE_TITLE: siteConfig.title,
+  SITE_TAGLINE: siteConfig.tagline,
+  SITE_TITLE_HTML: buildLogoHtml(siteConfig.title),
+  HERO_TITLE: siteConfig.hero_title,
+  HERO_DESC: siteConfig.hero_desc,
+  FOOTER_TEXT: siteConfig.footer_text,
+};
+
 function render(template, vars) {
   let html = template;
   for (const [key, value] of Object.entries(vars)) {
@@ -102,6 +177,8 @@ function processSection(section) {
       const slug = path.parse(file).name;
 
       const articleHtml = render(templates.article, {
+        ...siteVars,
+        NAV_LINKS: buildNavLinks(`/${section}/`),
         CURRENT_DATE: new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
         TITLE: parsed.attributes.title || '',
         EXCERPT: parsed.attributes.excerpt || '',
@@ -126,7 +203,7 @@ function processSection(section) {
 }
 
 // === MAIN BUILD EXECUTION ===
-console.log('🔨 Building Copyright News (Unsplash-style Layout)...\n');
+console.log('🔨 Building Copyright News (Dynamic Unsplash-style)...\n');
 
 const todaysDate = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
@@ -145,6 +222,8 @@ for (const section of sections) {
 
   const meta = SECTION_META[section];
   const sectionHtml = render(templates.section, {
+    ...siteVars,
+    NAV_LINKS: buildNavLinks(`/${section}/`),
     CURRENT_DATE: todaysDate,
     SECTION_LABEL: meta.label,
     SECTION_DESCRIPTION: meta.description,
@@ -171,6 +250,8 @@ const homepageCards = allPosts.length > 0
   : '<div class="grid-empty-state"><h3>No articles published yet</h3><p>Subscribe or check back later to view the latest digital stories.</p></div>';
 
 const homepageHtml = render(templates.index, {
+  ...siteVars,
+  NAV_LINKS: buildNavLinks('/'),
   CURRENT_DATE: todaysDate,
   ALL_ARTICLES: homepageCards,
 });
@@ -213,4 +294,4 @@ for (const page of staticPages) {
   }
 }
 
-console.log('\n🎉 Unsplash-style Build complete! Output in /dist');
+console.log('\n🎉 Dynamic Unsplash-style Build complete! Output in /dist');

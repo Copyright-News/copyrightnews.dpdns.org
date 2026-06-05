@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Content Manager | Copyright News</title>
+  <title>Admin Dashboard | Copyright News</title>
 </head>
 <body>
   <script>window.CMS_MANUAL_INIT = true;</script>
-  <!-- Using official Sveltia CDN as per docs -->
   <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
   <script>
+  // --- 1. STANDARD ARTICLE FIELDS ---
   const articleFields = [
     { name: "title", label: "Title", widget: "string", required: true },
     { 
       name: "category", 
       label: "Category", 
       widget: "select", 
-      options: ["AI", "Web Dev", "Security", "Hardware", "Software", "Policy", "Creator Economy"],
+      options: ["AI", "Web Dev", "Security", "Hardware", "Software", "Policy", "Creator Economy", "Breaking News", "Opinion"],
       default: "Web Dev",
       required: true
     },
@@ -27,8 +27,8 @@
       label: "Publish Date", 
       widget: "datetime", 
       format: "MMMM D, YYYY", 
-      date_format: "YYYY-MM-DD",   // ✅ Snake_case (Sveltia requirement)
-      time_format: false,           // ✅ Snake_case (Sveltia requirement)
+      date_format: "YYYY-MM-DD",   // Snake_case required by Sveltia
+      time_format: false,           // Snake_case required by Sveltia
       required: true
     },
     { name: "read_time", label: "Read Time", widget: "string", default: "5 min read" },
@@ -36,7 +36,6 @@
       name: "image", 
       label: "Featured Image", 
       widget: "image", 
-      // ✅ REMOVED 'allow_multiple' (Deprecated in Sveltia)
       media_library: { config: { max_file_size: 5242880 } },
       hint: "Recommended: 1200x675px. Max 5MB.",
       required: true
@@ -58,32 +57,35 @@
     }
   ];
 
+  // --- 2. INITIALIZE CMS ---
   CMS.init({
     config: {
       load_config_file: false,
-      // ✅ REMOVED 'local_backend' (Ignored by Sveltia, proxy servers unsupported)
       backend: {
         name: "github",
         repo: "Copyright-News/copyrightnews.dpdns.org",
         branch: "master"
-        // ✅ REMOVED 'auth_methods' and 'token' (Sveltia handles auth natively via UI)
       },
       media_folder: "assets/images",
       public_folder: "/assets/images",
       slug: { encoding: "ascii", clean_accents: true, sanitize_replacement: "-" },
+      
       collections: [
+        // ==========================================
+        // CONTENT COLLECTIONS (Edit/Delete Posts)
+        // ==========================================
         {
           name: "tech",
-          label: "Tech Articles",
+          label: "📰 Tech Articles",
           folder: "content/tech",
-          create: true,
+          create: true, // Allows creating NEW posts
           slug: "{{slug}}",
-          sortable_fields: ["date", "title", "category"], // ✅ Snake_case
+          sortable_fields: ["date", "title", "category"],
           fields: articleFields
         },
         {
           name: "blog",
-          label: "Blog Posts",
+          label: "📝 Blog Posts",
           folder: "content/blog",
           create: true,
           slug: "{{slug}}",
@@ -92,12 +94,50 @@
         },
         {
           name: "influencers",
-          label: "Influencer Articles",
+          label: "🌟 Influencer Articles",
           folder: "content/influencers",
           create: true,
           slug: "{{slug}}",
           sortable_fields: ["date", "title", "category"],
           fields: articleFields
+        },
+
+        // ==========================================
+        // ADMIN SETTINGS COLLECTIONS (Full Site Control)
+        // ==========================================
+        {
+          name: "settings",
+          label: "⚙️ Site Settings",
+          files: [
+            {
+              label: "Homepage & Branding",
+              name: "site_config",
+              file: "content/settings/site.json",
+              fields: [
+                { label: "Site Title", name: "title", widget: "string", default: "© Copyright News" },
+                { label: "Tagline", name: "tagline", widget: "string", default: "Policy • Tech • Creators" },
+                { label: "Hero Section Title", name: "hero_title", widget: "string" },
+                { label: "Hero Section Description", name: "hero_desc", widget: "text" },
+                { label: "Footer Copyright Text", name: "footer_text", widget: "string" }
+              ]
+            },
+            {
+              label: "Navigation Menu",
+              name: "nav_menu",
+              file: "content/settings/navigation.json",
+              fields: [
+                {
+                  label: "Menu Links",
+                  name: "links",
+                  widget: "list",
+                  fields: [
+                    { label: "Link Text", name: "text", widget: "string" },
+                    { label: "URL (e.g. /tech/)", name: "url", widget: "string" }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     }

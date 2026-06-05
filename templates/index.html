@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Copyright News | Editorial Visual Feed</title>
-  <meta name="description" content="In-depth analysis at the intersection of intellectual property, technology, and digital content creation.">
+  <title>{{SITE_TITLE}} | {{SITE_TAGLINE}}</title>
+  <meta name="description" content="{{HERO_DESC}}">
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
   <!-- SITE NAVIGATION HEADER -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="/" class="site-logo">Copyright<span>News</span></a>
+      <a href="/" class="site-logo">{{SITE_TITLE_HTML}}</a>
       
       <!-- Top Bar Search (Interactive) -->
       <div class="header-search">
@@ -25,12 +25,7 @@
 
       <nav class="header-nav" id="headerNav">
         <ul class="nav-links">
-          <li><a href="/" class="active">Home</a></li>
-          <li><a href="/tech/">Technology</a></li>
-          <li><a href="/blog/">Blog</a></li>
-          <li><a href="/influencers/">Influencers</a></li>
-          <li><a href="/gallery/">Gallery</a></li>
-          <li><a href="/about.html">About</a></li>
+          {{NAV_LINKS}}
           <li><a href="/admin/" class="btn-submit-story">Submit a Story</a></li>
         </ul>
       </nav>
@@ -55,8 +50,8 @@
   <!-- ATMOSPHERIC UNSPLASH HERO BANNER -->
   <section class="unsplash-hero" style="background-image: url('https://picsum.photos/id/48/1600/900');">
     <div class="unsplash-hero-content">
-      <h1 class="unsplash-hero__title">Copyright News</h1>
-      <p class="unsplash-hero__desc">The internet’s source for visual stories and in-depth analysis on intellectual property, technology, and digital creator culture.</p>
+      <h1 class="unsplash-hero__title">{{HERO_TITLE}}</h1>
+      <p class="unsplash-hero__desc">{{HERO_DESC}}</p>
       
       <!-- Main Hero Search Bar -->
       <div class="hero-search-wrapper">
@@ -119,8 +114,8 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <div class="footer-logo">CopyrightNews</div>
-          <p class="footer-desc">In-depth analysis at the intersection of intellectual property, technology, and digital content creation.</p>
+          <div class="footer-logo">{{SITE_TITLE_HTML}}</div>
+          <p class="footer-desc">{{SITE_TITLE}} — {{SITE_TAGLINE}}</p>
         </div>
         <div class="footer-col">
           <h4>Sections</h4>
@@ -149,7 +144,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Copyright News. All rights reserved.</p>
+        <p>{{FOOTER_TEXT}}</p>
         <div class="footer-bottom-links">
           <a href="/privacy.html">Privacy Policy</a>
           <a href="/terms.html">Terms of Service</a>

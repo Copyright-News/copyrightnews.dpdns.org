@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{TITLE}} — Copyright News</title>
+  <title>{{TITLE}} — {{SITE_TITLE}}</title>
   <meta name="description" content="{{EXCERPT}}">
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
@@ -12,7 +12,7 @@
   <!-- SITE NAVIGATION HEADER -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="/" class="site-logo">Copyright<span>News</span></a>
+      <a href="/" class="site-logo">{{SITE_TITLE_HTML}}</a>
       
       <!-- Top Bar Search (Interactive) -->
       <div class="header-search">
@@ -25,12 +25,7 @@
 
       <nav class="header-nav" id="headerNav">
         <ul class="nav-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/tech/">Technology</a></li>
-          <li><a href="/blog/">Blog</a></li>
-          <li><a href="/influencers/">Influencers</a></li>
-          <li><a href="/gallery/">Gallery</a></li>
-          <li><a href="/about.html">About</a></li>
+          {{NAV_LINKS}}
           <li><a href="/admin/" class="btn-submit-story">Submit a Story</a></li>
         </ul>
       </nav>
@@ -82,8 +77,8 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <div class="footer-logo">CopyrightNews</div>
-          <p class="footer-desc">In-depth analysis at the intersection of intellectual property, technology, and digital content creation.</p>
+          <div class="footer-logo">{{SITE_TITLE_HTML}}</div>
+          <p class="footer-desc">{{SITE_TITLE}} — {{SITE_TAGLINE}}</p>
         </div>
         <div class="footer-col">
           <h4>Sections</h4>
@@ -112,7 +107,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Copyright News. All rights reserved.</p>
+        <p>{{FOOTER_TEXT}}</p>
         <div class="footer-bottom-links">
           <a href="/privacy.html">Privacy Policy</a>
           <a href="/terms.html">Terms of Service</a>
