@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Copyright News</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-dashboard-page">
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <h2>Copyright News</h2>
+                <button class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#dashboard" class="nav-item active" data-section="dashboard">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#articles" class="nav-item" data-section="articles">
+                    <i class="fas fa-newspaper"></i>
+                    <span>Articles</span>
+                </a>
+                <a href="#create-article" class="nav-item" data-section="create-article">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Create Article</span>
+                </a>
+                <a href="#gallery" class="nav-item" data-section="gallery">
+                    <i class="fas fa-images"></i>
+                    <span>Gallery</span>
+                </a>
+                <a href="#settings" class="nav-item" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="login.html" class="nav-item logout" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <div class="header-left">
+                    <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+                    <h1 id="pageTitle">Dashboard</h1>
+                </div>
+                <div class="header-right">
+                    <span class="admin-user"><i class="fas fa-user-circle"></i> Admin</span>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="admin-section active">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon blue"><i class="fas fa-newspaper"></i></div>
+                            <div class="stat-info">
+                                <h3 id="totalArticles">0</h3>
+                                <p>Total Articles</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon green"><i class="fas fa-images"></i></div>
+                            <div class="stat-info">
+                                <h3 id="totalImages">0</h3>
+                                <p>Gallery Images</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon orange"><i class="fas fa-users"></i></div>
+                            <div class="stat-info">
+                                <h3>1</h3>
+                                <p>Admin Users</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon purple"><i class="fas fa-eye"></i></div>
+                            <div class="stat-info">
+                                <h3 id="totalViews">0</h3>
+                                <p>Total Views</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recent-articles">
+                        <h2>Recent Articles</h2>
+                        <div class="table-container">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Category</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recentArticlesTable">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Articles Section -->
+                <section id="articles" class="admin-section">
+                    <div class="section-header">
+                        <h2>All Articles</h2>
+                        <button class="btn-primary" onclick="showSection('create-article')"><i class="fas fa-plus"></i> New Article</button>
+                    </div>
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="allArticlesTable">
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Create Article Section -->
+                <section id="create-article" class="admin-section">
+                    <div class="section-header">
+                        <h2>Create New Article</h2>
+                    </div>
+                    <form id="articleForm" class="admin-form">
+                        <div class="form-group">
+                            <label for="articleTitle">Title</label>
+                            <input type="text" id="articleTitle" required placeholder="Enter article title">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="articleCategory">Category</label>
+                                <select id="articleCategory" required>
+                                    <option value="">Select Category</option>
+                                    <option value="tech">Tech</option>
+                                    <option value="influencers">Influencers</option>
+                                    <option value="blog">Blog</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="articleAuthor">Author</label>
+                                <input type="text" id="articleAuthor" required placeholder="Author name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="articleImage">Featured Image URL</label>
+                            <input type="url" id="articleImage" required placeholder="https://example.com/image.jpg">
+                        </div>
+                        <div class="form-group">
+                            <label for="articleExcerpt">Excerpt</label>
+                            <textarea id="articleExcerpt" rows="3" required placeholder="Short description..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="articleContent">Content</label>
+                            <textarea id="articleContent" rows="10" required placeholder="Full article content..."></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Publish Article</button>
+                            <button type="reset" class="btn-secondary">Clear</button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Gallery Section -->
+                <section id="gallery" class="admin-section">
+                    <div class="section-header">
+                        <h2>Gallery Management</h2>
+                        <button class="btn-primary" id="addImageBtn"><i class="fas fa-plus"></i> Add Image</button>
+                    </div>
+                    <form id="imageForm" class="admin-form" style="display:none;">
+                        <div class="form-group">
+                            <label for="imageUrl">Image URL</label>
+                            <input type="url" id="imageUrl" required placeholder="https://example.com/image.jpg">
+                        </div>
+                        <div class="form-group">
+                            <label for="imageCaption">Caption</label>
+                            <input type="text" id="imageCaption" required placeholder="Image caption">
+                        </div>
+                        <div class="form-group">
+                            <label for="imageCategory">Category</label>
+                            <select id="imageCategory" required>
+                                <option value="all">All</option>
+                                <option value="tech">Tech</option>
+                                <option value="events">Events</option>
+                                <option value="team">Team</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Add Image</button>
+                            <button type="button" class="btn-secondary" id="cancelImageBtn">Cancel</button>
+                        </div>
+                    </form>
+                    <div class="gallery-grid" id="adminGalleryGrid">
+                    </div>
+                </section>
+
+                <!-- Settings Section -->
+                <section id="settings" class="admin-section">
+                    <div class="section-header">
+                        <h2>Settings</h2>
+                    </div>
+                    <form id="settingsForm" class="admin-form">
+                        <div class="form-group">
+                            <label for="siteTitle">Site Title</label>
+                            <input type="text" id="siteTitle" value="Copyright News">
+                        </div>
+                        <div class="form-group">
+                            <label for="siteDescription">Site Description</label>
+                            <textarea id="siteDescription" rows="3">Your trusted source for copyright news and updates</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Change Password</label>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <input type="password" id="newPassword" placeholder="New password">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" id="confirmPassword" placeholder="Confirm password">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Save Settings</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Edit Article Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Edit Article</h2>
+            <form id="editArticleForm" class="admin-form">
+                <input type="hidden" id="editArticleId">
+                <div class="form-group">
+                    <label for="editTitle">Title</label>
+                    <input type="text" id="editTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="editCategory">Category</label>
+                    <select id="editCategory" required>
+                        <option value="tech">Tech</option>
+                        <option value="influencers">Influencers</option>
+                        <option value="blog">Blog</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="editImage">Image URL</label>
+                    <input type="url" id="editImage" required>
+                </div>
+                <div class="form-group">
+                    <label for="editExcerpt">Excerpt</label>
+                    <textarea id="editExcerpt" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="editContent">Content</label>
+                    <textarea id="editContent" rows="10" required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Update Article</button>
+                    <button type="button" class="btn-secondary close-modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../assets/js/admin.js"></script>
+</body>
+</html>

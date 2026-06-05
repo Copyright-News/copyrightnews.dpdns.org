@@ -98,6 +98,15 @@ img { max-width: 100%; height: auto; display: block; }
   background: rgba(255,255,255,0.1);
 }
 
+.nav-links .admin-link {
+  background: rgba(230, 57, 70, 0.3);
+  border: 1px solid rgba(230, 57, 70, 0.5);
+}
+
+.nav-links .admin-link:hover {
+  background: var(--accent);
+}
+
 /* ── Breaking News Ticker ── */
 .breaking-news {
   background: var(--accent);
