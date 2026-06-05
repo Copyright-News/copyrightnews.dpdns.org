@@ -168,6 +168,25 @@
               }]
             }
           ]
+        },
+        // ==========================================
+        // 📥 GROUP 4: SUBMISSIONS
+        // ==========================================
+        {
+          name: "submissions",
+          label: "📥 Submissions Inbox",
+          folder: "content/submissions",
+          create: false,
+          slug: "{{slug}}",
+          sortable_fields: ["submitted_at"],
+          fields: [
+            { name: "type", label: "Submission Type", widget: "string" },
+            { name: "name", label: "Submitter Name", widget: "string" },
+            { name: "email", label: "Email", widget: "string" },
+            { name: "title", label: "Title / Headline", widget: "string" },
+            { name: "message", label: "Pitch / Details", widget: "markdown" },
+            { name: "submitted_at", label: "Date Received", widget: "datetime" }
+          ]
         }
       ]
     }

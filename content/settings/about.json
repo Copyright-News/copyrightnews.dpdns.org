@@ -1,44 +1,23 @@
 {
   "title": "About Copyright News",
-  "subtitle": "Independent digital publication covering the intersection of technology, culture, and creativity.",
+  "subtitle": "An independent digital publication documenting the intersection of technology, intellectual property, and creator culture.",
   "mission_title": "Our Mission",
-  "mission_text": "We exist to document and analyze the rapidly evolving landscape of technology and influencer culture. From groundbreaking AI developments to the creators redefining entertainment, our goal is to provide context, insight, and stories that matter.",
+  "mission_text": "We exist to provide context in an era of rapid digital transformation. From groundbreaking AI developments and shifting copyright laws to the creators redefining entertainment, our goal is to deliver honest journalism, thoughtful analysis, and stories that matter to the digital economy.",
   "story_title": "Our Story",
-  "story_text": "Founded in 2026, Copyright News emerged from a simple observation: the digital world was moving faster than traditional media could keep up. We built a platform that moves at the speed of the internet without sacrificing depth or quality.\n\nWhat started as a small newsletter has grown into a full-fledged publication covering tech, influencers, and the creator economy — read by thousands of readers worldwide.",
-  "team": [
-    {
-      "name": "Alex Rivera",
-      "role": "Editor-in-Chief",
-      "image": "https://picsum.photos/seed/team1/200/200"
-    },
-    {
-      "name": "Maya Chen",
-      "role": "Tech Editor",
-      "image": "https://picsum.photos/seed/team2/200/200"
-    },
-    {
-      "name": "Jordan Taylor",
-      "role": "Culture & Influencers Editor",
-      "image": "https://picsum.photos/seed/team3/200/200"
-    },
-    {
-      "name": "Samira Patel",
-      "role": "Photography & Visuals",
-      "image": "https://picsum.photos/seed/team4/200/200"
-    }
-  ],
+  "story_text": "Founded in 2026, Copyright News emerged from a simple observation: the digital world was moving faster than traditional media could keep up. We built a platform that moves at the speed of the internet without sacrificing depth, accuracy, or editorial independence.\n\nWhat started as a niche newsletter has grown into a full-fledged publication read by thousands of industry professionals, creators, and technologists worldwide.",
+  "team": [],
   "values": [
     {
       "title": "Independence",
-      "text": "We are not owned by any corporation or platform. Our editorial decisions are our own."
+      "text": "We are not owned by any corporation, platform, or agency. Our editorial decisions are our own, ensuring unbiased coverage of the tech and creator landscapes."
     },
     {
       "title": "Depth",
-      "text": "We prioritize understanding over speed. When we cover a story, we aim to tell you something you didn't know."
+      "text": "We prioritize understanding over speed. When we cover a story, we aim to provide the historical and legal context you won't find in breaking news feeds."
     },
     {
       "title": "Community",
-      "text": "We believe in open source and giving back. Our tools and platform are built with transparency in mind."
+      "text": "We believe in open source, transparency, and giving back. Our tools and platform are built with the creator community in mind."
     }
   ]
 }

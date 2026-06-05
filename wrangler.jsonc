@@ -1,11 +1,11 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "copyrightnews",
+  "main": "src/worker.js",
   "compatibility_date": "2026-06-02",
-
-
   "assets": {
-    "directory": "dist"
+    "directory": "./dist",
+    "binding": "ASSETS"
   },
   "compatibility_flags": [
     "nodejs_compat"

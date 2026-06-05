@@ -3,113 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — Copyright News</title>
-  <meta name="description" content="Get in touch with Copyright News. Story tips, press inquiries, and feedback welcome.">
-  <meta property="og:title" content="Contact — Copyright News">
-  <meta property="og:description" content="Get in touch with Copyright News. Story tips, press inquiries, and feedback welcome.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://copyrightnews.dpdns.org/contact.html">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Contact & Submit a Story | Copyright News</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="/" class="site-logo">Copyright <span>News</span></a>
-      <button class="nav-toggle" id="navToggle" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-      <nav>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="/">Home</a></li>
-          <li><a href="tech/">Tech</a></li>
-          <li><a href="influencers/">Influencers</a></li>
-          <li><a href="blog/">Blog</a></li>
-          <li><a href="gallery/">Gallery</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-      </nav>
+  <header class="site-header"><div class="container header-inner"><a href="/" class="site-brand"><span class="site-logo">© Copyright News</span></a><nav class="main-nav"><a href="/tech/">Tech</a><a href="/blog/">Blog</a><a href="/influencers/">Influencers</a><a href="/about/">About</a><a href="/contact/" class="active">Contact</a></nav></div></header>
+
+  <main class="container" style="padding: 4rem 1.5rem;">
+    <div style="text-align:center; max-width:700px; margin:0 auto 3rem;">
+      <h1 style="font-size:2.5rem; margin-bottom:1rem;">Get in Touch</h1>
+      <p style="font-size:1.15rem; color:var(--text-secondary);">Have a story tip, press inquiry, or want to submit your work? We'd love to hear from you. All submissions are reviewed by our editorial team.</p>
+      <p style="margin-top:1.5rem; font-weight:600;">General Inquiries: <a href="mailto:admin@copyrightnews.dpdns.org">admin@copyrightnews.dpdns.org</a></p>
     </div>
-  </header>
 
-  <main>
-    <section class="page-content">
-      <div class="container">
-        <h1 style="text-align:center;">Get in Touch</h1>
-        <p style="text-align:center; max-width:500px; margin:0 auto 40px;">Have a story tip, press inquiry, or just want to say hello? We'd love to hear from you.</p>
-
-        <div class="contact-info">
-          <p>📧 <a href="mailto:mintdmca@gmail.com">mintdmca@gmail.com</a></p>
-          <p>📢 <a href="https://t.me/copyrightnews" target="_blank">@copyrightnews on Telegram</a></p>
-        </div>
-
-        <form class="contact-form" id="contactForm" method="POST">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required>
-
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-
-          <label for="subject">Subject</label>
-          <select id="subject" name="subject">
-            <option>Story tip</option>
-            <option>Press inquiry</option>
-            <option>Advertising</option>
-            <option>Feedback</option>
-            <option>Other</option>
-          </select>
-
-          <label for="message">Message</label>
-          <textarea id="message" name="message" required></textarea>
-
-          <button type="submit">Send Message</button>
-        </form>
-        <p id="formStatus" style="text-align:center;margin-top:16px;font-weight:600;display:none;"></p>
+    <form id="submission-form" class="submission-form">
+      <div class="form-group">
+        <label>Submission Type</label>
+        <select name="type" required>
+          <option value="Story Pitch">Story Pitch / Article Request</option>
+          <option value="Gallery Submission">Gallery Photo Submission</option>
+          <option value="News Tip">News Tip / Press Inquiry</option>
+        </select>
       </div>
-    </section>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" name="name" required>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name="email" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Title / Headline</label>
+        <input type="text" name="title" required placeholder="e.g., The Future of AI Copyright">
+      </div>
+      <div class="form-group">
+        <label>Details / Pitch</label>
+        <textarea name="message" rows="6" required placeholder="Tell us about your story, link to your gallery, or share your tip..."></textarea>
+      </div>
+      <button type="submit" class="btn-primary">Submit for Editorial Review</button>
+      <p id="form-status" class="form-status"></p>
+    </form>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h4>Copyright News</h4>
-          <p>Your trusted source for technology news, influencer culture, and creator economy insights.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Sections</h4>
-          <ul>
-            <li><a href="tech/">Technology</a></li>
-            <li><a href="influencers/">Influencers</a></li>
-            <li><a href="blog/">Blog</a></li>
-            <li><a href="gallery/">Gallery</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Company</h4>
-          <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="terms.html">Terms of Service</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Follow Us</h4>
-          <ul>
-            <li><a href="https://github.com/Copyright-News" target="_blank">GitHub</a></li>
-            <li><a href="https://t.me/copyrightnews" target="_blank">Telegram</a></li>
-            <li><a href="https://x.com/copyrightnews" target="_blank">Twitter / X</a></li>
-            <li><a href="https://instagram.com/copyrightnews" target="_blank">Instagram</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Copyright News. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+  <footer class="site-footer"><div class="container"><p>&copy; 2026 Copyright News. All rights reserved.</p></div></footer>
 
-  <script src="assets/js/main.js"></script>
+  <script>
+    document.getElementById('submission-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const statusEl = document.getElementById('form-status');
+      const btn = form.querySelector('button');
+      btn.disabled = true; btn.textContent = 'Transmitting...'; statusEl.textContent = '';
+      const data = Object.fromEntries(new FormData(form).entries());
+      try {
+        const res = await fetch('/api/submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+        if (res.ok) {
+          statusEl.className = 'form-status success';
+          statusEl.textContent = 'Success! Your submission has been received and is pending editorial review.';
+          form.reset();
+        } else { throw new Error('Server error'); }
+      } catch (err) {
+        statusEl.className = 'form-status error';
+        statusEl.textContent = 'Something went wrong. Please email us directly at admin@copyrightnews.dpdns.org.';
+      } finally { btn.disabled = false; btn.textContent = 'Submit for Editorial Review'; }
+    });
+  </script>
 </body>
 </html>
